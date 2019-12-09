@@ -7,16 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Categories - sishida21.github.io</title>
+<title>Python環境構築(pyenv + pyenv-virtualenv) - sishida21.github.io</title>
 
 
-    <meta name="keywords" content="setup,python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="sishida21.github.io">
-<meta property="og:url" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;categories&#x2F;index.html">
+    <meta name="description" content="普段私はpyenv + pyenv-virtualenvの組み合わせでpythonの環境管理をしています。動作確認はLinux, MaxOSでしてます。 Install pyenv and pyenv-virtualenv下記のスクリプトをダウンロードして、">
+<meta name="keywords" content="setup,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python環境構築(pyenv + pyenv-virtualenv)">
+<meta property="og:url" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;2019&#x2F;12&#x2F;09&#x2F;pyenv&#x2F;index.html">
 <meta property="og:site_name" content="sishida21.github.io">
+<meta property="og:description" content="普段私はpyenv + pyenv-virtualenvの組み合わせでpythonの環境管理をしています。動作確認はLinux, MaxOSでしてます。 Install pyenv and pyenv-virtualenv下記のスクリプトをダウンロードして、">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-12-09T11:57:03.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
 
@@ -76,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                <img src="/images/benzene.svg" alt="Python環境構築(pyenv + pyenv-virtualenv)" height="28">
             
             </a>
         </div>
@@ -90,7 +93,7 @@
                 <a class="navbar-item"
                 href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/categories">Categories</a>
                 
                 <a class="navbar-item"
@@ -126,18 +129,129 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-09T11:57:03.000Z">2019-12-09</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 611 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-            </ul>
+                Python環境構築(pyenv + pyenv-virtualenv)
+            
+        </h1>
+        <div class="content">
+            <p>普段私はpyenv + pyenv-virtualenvの組み合わせでpythonの環境管理をしています。<br>動作確認はLinux, MaxOSでしてます。</p>
+<h2><span id="install-pyenv-and-pyenv-virtualenv">Install pyenv and pyenv-virtualenv</span></h2><p>下記のスクリプトをダウンロードして、</p>
+<script src="//gist.github.com/sishida21/8ca8c2592cf0e39f077c8bbf02a0197c.js?file=install_pyenv.sh"></script>
+<a id="more"></a>
+<p>ターミナルを起動してダウンロードした場所に移動した後に、下記のコマンドを実行して下さい。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">bash install_pyenv.sh</span></pre></td></tr></table></figure>
+
+
+<p>インストールが終わったら一度ターミナルを立ち上げ直して下さい。<br>これでpyenv + pyenv-virtualenvのインストールは完了です。</p>
+<h2><span id="set-virtual-environment">Set virtual environment</span></h2><h3><span id="install-miniconda">Install miniconda</span></h3><p>python環境は全てpyenv-virtualenv上で管理しています。<br>そうすることで環境の使い捨てが簡単になるので便利です。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">pyenv install miniconda3-4.2.12</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">pyenv shell miniconda3-4.2.12</span></pre></td></tr></table></figure>
+
+<h3><span id="create-home-environment">Create home environment</span></h3><p>インストールしたminiconda上でcondaコマンドを使用すると、condaのバージョンが上がってpyenvがおかしくなります。<br>それを防ぐために仮想home環境を作成し、そこをデフォルトの作業環境とします。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">conda create -n home python&#x3D;3.6</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">pyenv global miniconda3-4.2.12&#x2F;envs&#x2F;home</span></pre></td></tr></table></figure>
+
+<h3><span id="create-test-environment">Create test environment</span></h3><p>あとはテーマ毎等で仮想環境を作って個別に管理します。<br>そうすることで各環境を最小構成にすることができて干渉する心配もありません。<br>ここでは試しにcalc環境を作成します。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">conda create -n calc python&#x3D;3.6</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">pyenv shell miniconda3-4.2.12&#x2F;envs&#x2F;calc</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">conda install -c rdkit rdkit</span></pre></td></tr></table></figure>
+
+<p>簡単ではありますが、以上でpythonの環境構築についての解説を終わります。<br>何かご質問等ありましたらコメントにお願いします。</p>
+<div id="disqus_thread"></div>
+<script>
+
+<p>/**</p>
+<ul>
+<li>RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.</li>
+<li>LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: <a href="https://disqus.com/admin/universalcode/#configuration-variables*/" target="_blank" rel="noopener">https://disqus.com/admin/universalcode/#configuration-variables*/</a><br>/*<br>var disqus_config = function () {<br>this.page.url = PAGE_URL;  // Replace PAGE_URL with your page’s canonical URL variable<br>this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page’s unique identifier variable<br>};</li>
+<li>/<br>(function() { // DON’T EDIT BELOW THIS LINE<br>var d = document, s = d.createElement(‘script’);<br>s.src = ‘<a href="https://https-sishida21-github-io.disqus.com/embed.js&#39;" target="_blank" rel="noopener">https://https-sishida21-github-io.disqus.com/embed.js&#39;</a>;<br>s.setAttribute(‘data-timestamp’, +new Date());<br>(d.head || d.body).appendChild(s);<br>})();<br></script><br><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/python/" rel="tag">python</a>, <a class="has-link-grey -link" href="/tags/setup/" rel="tag">setup</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/12/09/intro/">
+                <span class="level-item">はじめに</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://sishida21.github.io/2019/12/09/pyenv/';
+        this.page.identifier = '2019/12/09/pyenv/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'https-sishida21-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
                 
 
 
@@ -535,7 +649,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                    <img src="/images/benzene.svg" alt="Python環境構築(pyenv + pyenv-virtualenv)" height="28">
                 
                 </a>
                 <p class="is-size-7">
