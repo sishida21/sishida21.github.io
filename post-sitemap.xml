@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://sishida21.github.io/2019/12/12/remote-jupyter-notebook/</loc>
+        <lastmod>2019-12-12T11:45:26.005Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://sishida21.github.io/2019/12/09/pyenv/</loc>
         <lastmod>2019-12-09T14:41:08.110Z</lastmod>
         <changefreq>weekly</changefreq>
