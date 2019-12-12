@@ -19,7 +19,7 @@
 <meta property="og:description" content="remote serverで立ち上げたjupyter notebookをローカルPCで操作する">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-12T11:45:26.005Z">
+<meta property="og:updated_time" content="2019-12-12T11:47:22.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
 
@@ -168,10 +168,11 @@
 </li>
 <li><p>生成したconfigファイルの書き換え<br><code>c.NotebookApp.~</code>の項目が記載されている行を探し、アンコメントして以下の通り書き換える。</p>
 <blockquote>
-<p>c.NotebookApp.ip = ‘localhost’<br>c.NotebookApp.open_browser = False<br>c.NotebookApp.port = 8889<br>c.NotebookApp.token = u’’<br>以上でサーバー側での設定は終わり。</p>
+<p>c.NotebookApp.ip = ‘localhost’<br>c.NotebookApp.open_browser = False<br>c.NotebookApp.port = 8889<br>c.NotebookApp.token = u’’</p>
 </blockquote>
 </li>
 </ol>
+<p>以上でサーバー側での設定は終わり。</p>
 <h2><span id="ローカルpcからの操作">ローカルPCからの操作</span></h2><ol>
 <li><p>いつも通りsshする際に、ローカルフォワーディングする引数をつける。<br>例ではlocalhostのポート8889番をリモートサーバーの8889番につないでいる。<br>sshの引数は適宜追加して下さい。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ssh -L 8889:localhost:8889 example.com</span></pre></td></tr></table></figure>
