@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>https://sishida21.github.io/tags/Overleaf/</loc>
+        <lastmod>2019-12-15T09:04:51.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/Word/</loc>
+        <lastmod>2019-12-15T09:04:51.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/LaTeX/</loc>
+        <lastmod>2019-12-15T09:04:51.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://sishida21.github.io/tags/setup/</loc>
         <lastmod>2019-12-12T11:57:17.574Z</lastmod>
         <changefreq>weekly</changefreq>
