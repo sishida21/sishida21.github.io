@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://sishida21.github.io/2019/12/19/intro/</loc>
+        <lastmod>2019-12-19T12:55:42.008Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://sishida21.github.io/2019/12/15/latex-to-word/</loc>
         <lastmod>2019-12-15T09:04:51.282Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,14 +34,6 @@
     <url>
         <loc>https://sishida21.github.io/2019/12/12/remote-jupyter-notebook/</loc>
         <lastmod>2019-12-12T11:48:33.059Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sishida21.github.io/2019/12/09/intro/</loc>
-        <lastmod>2019-12-09T14:30:16.146Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
