@@ -19,7 +19,7 @@
 <meta property="og:description" content="rdMolDraw2Dを用いて単色の分子を描画する">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-01-07T08:07:20.608Z">
+<meta property="og:updated_time" content="2020-01-07T08:11:28.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
 
@@ -181,8 +181,9 @@
 <ol>
 <li><code>DrawingOptions.elemDict.keys()</code> で分子中の各原子のkeyを取得</li>
 <li>取得したkeyに <code>(0, 0, 0)</code> を割り当てる。（これはRGB表記の黒を意味しています）</li>
-<li>作成したdictを <code>drawer.drawOptions().updateAtomPalette()</code> を使ってatom paletteの更新<br>以上の処理で分子の色を調整しています。RGB表記の値を変えれば望みの色に分子を統一することが可能です。</li>
+<li>作成したdictを <code>drawer.drawOptions().updateAtomPalette()</code> を使ってatom paletteの更新</li>
 </ol>
+<p>以上の処理で分子の色を調整しています。RGB表記の値を変えれば望みの色に分子を統一することが可能です。</p>
 <p>12行目をコメントアウトすると、以下の通りヘテロ原子に色がついた分子の描画ができます。</p>
 <img src="/2020/01/07/rdkit-draw-mol/mol_color.svg" class title="penicillin">
 
