@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://sishida21.github.io/tags/rdkit/</loc>
+        <lastmod>2020-01-07T08:07:20.608Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/cheminformatics/</loc>
+        <lastmod>2020-01-07T08:07:20.608Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://sishida21.github.io/tags/book-scanning/</loc>
         <lastmod>2020-01-02T04:51:17.149Z</lastmod>
         <changefreq>weekly</changefreq>
