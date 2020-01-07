@@ -3,64 +3,64 @@
 
 
     <url>
-        <loc>https://sishida21.github.io/tags/rdkit/</loc>
-        <lastmod>2020-01-07T08:11:28.830Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sishida21.github.io/tags/cheminformatics/</loc>
-        <lastmod>2020-01-07T08:11:28.830Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sishida21.github.io/tags/book-scanning/</loc>
-        <lastmod>2020-01-02T04:51:17.149Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://sishida21.github.io/tags/Overleaf/</loc>
-        <lastmod>2019-12-15T09:04:51.282Z</lastmod>
+        <lastmod>2020-01-07T08:34:17.255Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sishida21.github.io/tags/Word/</loc>
-        <lastmod>2019-12-15T09:04:51.282Z</lastmod>
+        <lastmod>2020-01-07T08:34:17.255Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sishida21.github.io/tags/LaTeX/</loc>
-        <lastmod>2019-12-15T09:04:51.282Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sishida21.github.io/tags/setup/</loc>
-        <lastmod>2019-12-12T11:57:17.574Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sishida21.github.io/tags/python/</loc>
-        <lastmod>2019-12-12T11:57:17.574Z</lastmod>
+        <lastmod>2020-01-07T08:34:17.255Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sishida21.github.io/tags/jupyter-notebook/</loc>
-        <lastmod>2019-12-12T11:48:33.059Z</lastmod>
+        <lastmod>2020-01-07T08:33:38.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/python/</loc>
+        <lastmod>2020-01-07T08:33:38.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/rdkit/</loc>
+        <lastmod>2020-01-07T08:33:23.377Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/cheminformatics/</loc>
+        <lastmod>2020-01-07T08:33:23.377Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/setup/</loc>
+        <lastmod>2020-01-07T08:32:38.160Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/book-scanning/</loc>
+        <lastmod>2020-01-07T08:31:57.042Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
