@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://sishida21.github.io/tags/rdkit/</loc>
+        <lastmod>2020-01-07T08:35:52.575Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sishida21.github.io/tags/cheminformatics/</loc>
+        <lastmod>2020-01-07T08:35:52.575Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://sishida21.github.io/tags/Overleaf/</loc>
         <lastmod>2020-01-07T08:34:17.255Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,20 +47,6 @@
     <url>
         <loc>https://sishida21.github.io/tags/python/</loc>
         <lastmod>2020-01-07T08:33:38.487Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sishida21.github.io/tags/rdkit/</loc>
-        <lastmod>2020-01-07T08:33:23.377Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sishida21.github.io/tags/cheminformatics/</loc>
-        <lastmod>2020-01-07T08:33:23.377Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
