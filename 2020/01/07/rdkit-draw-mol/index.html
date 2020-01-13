@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 4.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -11,17 +11,20 @@
 
 
     <meta name="description" content="rdMolDraw2Dを用いて単色の分子を描画する">
-<meta name="keywords" content="cheminformatics,rdkit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rdMolDraw2Dを用いて単色の分子を描画する">
-<meta property="og:url" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;2020&#x2F;01&#x2F;07&#x2F;rdkit-draw-mol&#x2F;index.html">
+<meta property="og:url" content="https://sishida21.github.io/2020/01/07/rdkit-draw-mol/index.html">
 <meta property="og:site_name" content="sishida21.github.io">
 <meta property="og:description" content="rdMolDraw2Dを用いて単色の分子を描画する">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-01-07T08:39:30.174Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sishida21.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-01-07T08:07:20.000Z">
+<meta property="article:modified_time" content="2020-01-07T08:39:30.174Z">
+<meta property="article:author" content="Shoichi Ishida">
+<meta property="article:tag" content="rdkit">
+<meta property="article:tag" content="cheminformatics">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;sishida21.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://sishida21.github.io/images/og_image.png">
 
 
 
@@ -124,7 +127,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -166,22 +169,24 @@
             
         </h1>
         <div class="content">
-            <p>本記事では、RDKitを使って原子が色分けされていない単色の分子を描画する方法について記載します。<br>いろいろな記事で分子の描画方法については記載があったのですが、原子の色を調整する方法は載っていなかった&amp;やり方にたどり着くまで試行錯誤が必要だったのでまとめることにしました。<br>処理としては1行で済むので簡単です。</p>
+            <html><head></head><body><p>本記事では、RDKitを使って原子が色分けされていない単色の分子を描画する方法について記載します。
+いろいろな記事で分子の描画方法については記載があったのですが、原子の色を調整する方法は載っていなかった&やり方にたどり着くまで試行錯誤が必要だったのでまとめることにしました。
+処理としては1行で済むので簡単です。</p>
 <a id="more"></a>
 
 <p>rdMolDraw2Dを使った基本的な分子の描画方法については、<a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">こちらのブログ</a>に丁寧にまとめられていますのでそちらを参照ください。</p>
-<h2><span id="環境ライブラリ">環境・ライブラリ</span></h2><ul>
+<h2 id="環境・ライブラリ"><a href="#環境・ライブラリ" class="headerlink" title="環境・ライブラリ"></a>環境・ライブラリ</h2><ul>
 <li>python: 3.6</li>
 <li>rdkit: 2019.09.2</li>
 <li>ipython: 7.1.1</li>
 </ul>
-<h2><span id="スクリプト">スクリプト</span></h2><p>以下のスクリプトを実行すると黒色単色で分子を描画することができます。</p>
+<h2 id="スクリプト"><a href="#スクリプト" class="headerlink" title="スクリプト"></a>スクリプト</h2><p>以下のスクリプトを実行すると黒色単色で分子を描画することができます。</p>
 <script src="https://gist.github.com/sishida21/cc724610bdea11aa8f79746b9ebed8f3.js"></script>
 
 <p>このスクリプトの出力ファイルの中身は以下の通りです。</p>
 <img src="/2020/01/07/rdkit-draw-mol/mol.svg" class title="penicillin">
 
-<h2><span id="解説">解説</span></h2><p>分子の色を調整しているのは12行目の <code>drawer.drawOptions().updateAtomPalette({k: (0, 0, 0) for k in DrawingOptions.elemDict.keys()})</code> になります。</p>
+<h2 id="解説"><a href="#解説" class="headerlink" title="解説"></a>解説</h2><p>分子の色を調整しているのは12行目の <code>drawer.drawOptions().updateAtomPalette({k: (0, 0, 0) for k in DrawingOptions.elemDict.keys()})</code> になります。</p>
 <ol>
 <li><code>DrawingOptions.elemDict.keys()</code> で分子中の各原子のkeyを取得</li>
 <li>取得したkeyに <code>(0, 0, 0)</code> を割り当てる。（これはRGB表記の黒を意味しています）</li>
@@ -193,8 +198,9 @@
 
 <p>他にも色々とdrawerのオプションは調整できますが、それは<a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">RDkitのAPIドキュメント</a>を参照してください。</p>
 <p>以上で終わります。</p>
-<h2><span id="参照">参照</span></h2><p><a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">RDKitでの構造式描画を詳しく解説</a><br><a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">rdkit.Chem.Draw.rdMolDraw2D module</a></p>
-
+<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a>参照</h2><p><a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">RDKitでの構造式描画を詳しく解説</a>
+<a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">rdkit.Chem.Draw.rdMolDraw2D module</a></p>
+</body></html>
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -259,7 +265,7 @@
 
 <div id="disqus_thread">
     
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </div>
     </div>
 </div>
@@ -1037,7 +1043,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
