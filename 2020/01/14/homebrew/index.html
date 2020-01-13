@@ -7,16 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: cheminformatics - sishida21.github.io</title>
+<title>HomebrewでMacのパッケージ・アプリケーションの管理 - sishida21.github.io</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="sishida21.github.io">
-<meta property="og:url" content="https://sishida21.github.io/tags/cheminformatics/index.html">
+    <meta name="description" content="Homebrew, Homebrew-cask, Homebrew-fileについての説明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HomebrewでMacのパッケージ・アプリケーションの管理">
+<meta property="og:url" content="https://sishida21.github.io/2020/01/14/homebrew/index.html">
 <meta property="og:site_name" content="sishida21.github.io">
+<meta property="og:description" content="Homebrew, Homebrew-cask, Homebrew-fileについての説明">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sishida21.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-01-13T17:24:08.000Z">
+<meta property="article:modified_time" content="2020-01-13T17:24:08.504Z">
 <meta property="article:author" content="Shoichi Ishida">
+<meta property="article:tag" content="homebrew">
+<meta property="article:tag" content="macOS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sishida21.github.io/images/og_image.png">
 
@@ -84,7 +90,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                <img src="/images/benzene.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理" height="28">
             
             </a>
         </div>
@@ -133,35 +139,24 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">cheminformatics</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-07T08:07:20.000Z">2020-01-07</time>
+                <time class="level-item has-text-grey" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/cheminformatics/">cheminformatics</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/programming/">programming</a>
+                <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 610 words)
+                    9 minutes read (About 1311 words)
                 </span>
                 
                 
@@ -170,23 +165,87 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/07/rdkit-draw-mol/">rdMolDraw2Dを用いて単色の分子を描画する</a>
+                HomebrewでMacのパッケージ・アプリケーションの管理
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>本記事では、RDKitを使って原子が色分けされていない単色の分子を描画する方法について記載します。
-いろいろな記事で分子の描画方法については記載があったのですが、原子の色を調整する方法は載っていなかった&やり方にたどり着くまで試行錯誤が必要だったのでまとめることにしました。
-処理としては1行で済むので簡単です。</p></body></html>
+            <html><head></head><body><p>Macのアプリケーション管理は <strong>Homebrew</strong> を用いると便利です。
+macOSにないパッケージは大体これでインストール可能なのと、 <strong>Homebrew-cask</strong> を使えばGUIアプリケーション（Google Chrome、Office系アプリ、etc.）もインストール・管理が可能です。
+また、インストールしたものは <strong>Homebrew-file</strong> を使えばgit管理ができて新しいMacへの移行も楽になります。
+MacユーザーならHomebrewを使わない理由はないくらいには便利なので、ぜひ以下の内容を参考に導入してみてください。</p>
+<a id="more"></a>
+
+<h2 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h2><p>macOSにないパッケージをインストールしてくれるmacOS用パッケージマネージャーです。</p>
+<a href="https://brew.sh/index_ja" class="link-preview" target="\_blank" rel="nofollow"><div class="link-area"><div class="og-image"><img src="https://brew.sh/assets/img/homebrew-social-card.png"></div><div class="descriptions"><div class="og-title">Homebrew</div><div class="og-description">The Missing Package Manager for macOS (or Linux).</div></div></div></a>
+
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>インストールは下記をターミナルで実行するだけで完了です。</p>
+<figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>このままだとbrewコマンドのtab補完が効かないので、以下の通り <code>~/.bash_profile</code> に追記して <code>bash-completion</code> をインストールします。</p>
+<figure class="highlight sh hljs"><figcaption><span>~/.bash_profile</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span> brew &>/dev/null; <span class="hljs-keyword">then</span></span><br><span class="line">  HOMEBREW_PREFIX=<span class="hljs-string">"<span class="hljs-variable">$(brew --prefix)</span>"</span></span><br><span class="line">  <span class="hljs-keyword">if</span> [[ -r <span class="hljs-string">"<span class="hljs-variable">${HOMEBREW_PREFIX}</span>/etc/profile.d/bash_completion.sh"</span> ]]; <span class="hljs-keyword">then</span></span><br><span class="line">    <span class="hljs-built_in">source</span> <span class="hljs-string">"<span class="hljs-variable">${HOMEBREW_PREFIX}</span>/etc/profile.d/bash_completion.sh"</span></span><br><span class="line">  <span class="hljs-keyword">else</span></span><br><span class="line">    <span class="hljs-keyword">for</span> COMPLETION <span class="hljs-keyword">in</span> <span class="hljs-string">"<span class="hljs-variable">${HOMEBREW_PREFIX}</span>/etc/bash_completion.d/"</span>*; <span class="hljs-keyword">do</span></span><br><span class="line">      [[ -r <span class="hljs-string">"<span class="hljs-variable">$COMPLETION</span>"</span> ]] && <span class="hljs-built_in">source</span> <span class="hljs-string">"<span class="hljs-variable">$COMPLETION</span>"</span></span><br><span class="line">    <span class="hljs-keyword">done</span></span><br><span class="line">  <span class="hljs-keyword">fi</span></span><br><span class="line"><span class="hljs-keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install bash-completion</span><br></pre></td></tr></tbody></table></figure>
+<p>あとは <code>~/.bash_profile</code> を再読み込みするか新しいターミナルを立ち上げればtab補完が使えるようになります。</p>
+<h3 id="基本コマンド"><a href="#基本コマンド" class="headerlink" title="基本コマンド"></a>基本コマンド</h3><p>コマンド一覧は<a href="https://docs.brew.sh/Manpage" target="_blank" rel="noopener">公式ドキュメント</a>を参照してください。
+色々と用意されていますが基本は、</p>
+<ul>
+<li>brew install <em>fomula</em></li>
+<li>brew search <em>fomula</em></li>
+<li>brew uninstall <em>fomula</em></li>
+<li>brew doctor  # brew関連のtrouble shootingをしてくれる  </li>
+</ul>
+<p>あたりが使えれば問題ないと思います。</p>
+<h3 id="Brewfile"><a href="#Brewfile" class="headerlink" title="Brewfile"></a>Brewfile</h3><p><a href="https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew" target="_blank" rel="noopener">Homebrew用のGemfile</a>です。
+ここにbrewを通してインストールしたパッケージの依存関係が記載されます。
+Brewfileは後述のHomebrew-fileを使って管理します。</p>
+<h2 id="Homebrew-cask"><a href="#Homebrew-cask" class="headerlink" title="Homebrew-cask"></a>Homebrew-cask</h2><p>macOSのGUIアプリケーション（Google Chrome、Office系アプリ、etc.）もHomebrewで管理できるようにしてくれる<a href="https://github.com/Homebrew/homebrew-cask" target="_blank" rel="noopener">拡張パッケージ</a>です。
+大体のGUIアプリケーションはこれでインストールできるので、これを使うとGUIアプリケーションの管理も楽になります。
+最新のHomebrewだと標準で搭載されていると思います。
+なのでインストールはTab補完の設定だけ記載します。</p>
+<h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install brew-cask-completion</span><br></pre></td></tr></tbody></table></figure>
+<p><code>~/.bash_profile</code> への設定はHomebrewのtab補完の設定時にやっているもので大丈夫です。</p>
+<h3 id="基本コマンド-1"><a href="#基本コマンド-1" class="headerlink" title="基本コマンド"></a>基本コマンド</h3><ul>
+<li>brew cask install <em>application</em></li>
+<li>brew cask uninstall <em>application</em></li>
+<li>brew cask list  # Homebrew-caskを通してインストールしたアプリ一覧の表示</li>
+</ul>
+<h2 id="Homebrew-file"><a href="#Homebrew-file" class="headerlink" title="Homebrew-file"></a>Homebrew-file</h2><p>Brewfileを管理してくれる<a href="https://github.com/rcmdnk/homebrew-file" target="_blank" rel="noopener">パッケージ</a>です。
+私はこれを使ってBrewfileをgit管理することでバックアップをとっています。</p>
+<h3 id="Install-2"><a href="#Install-2" class="headerlink" title="Install"></a>Install</h3><figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install rcmdnk/file/brew-file</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>~/.bashrc</code> に以下を追加する（※ この設定は私のMacではうまく機能しないので、使用していません。）</p>
+<figure class="highlight sh hljs"><figcaption><span>~/.bashrc</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> [ -f $(brew --prefix)/etc/brew-wrap ];<span class="hljs-keyword">then</span></span><br><span class="line">  <span class="hljs-built_in">source</span> $(brew --prefix)/etc/brew-wrap</span><br><span class="line"><span class="hljs-keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Brewfileの作成・管理"><a href="#Brewfileの作成・管理" class="headerlink" title="Brewfileの作成・管理"></a>Brewfileの作成・管理</h3><p>公式ドキュメントには<a href="https://homebrew-file.readthedocs.io/en/latest/getting_started.html" target="_blank" rel="noopener">DropboxとGitでの管理方法</a>が記載されていますが、私はGitで管理していますのでその方法について記載します。<br>※公式ドキュメントではbrew-wrapが設定できている前提で記載されています。今回は設定していないのでbrew-fileを使っています。</p>
+<p>まずは自分のGitのレポジトリを設定します。</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew-file set_repo</span><br></pre></td></tr></tbody></table></figure>
+<p>以下のコマンドを実行すると <code>~/.config/brewfile/Brewfile</code> にBrewfileが作成されます。</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew-file init</span><br></pre></td></tr></tbody></table></figure>
+<p>そして以下のコマンドを実行すると設定したGitにBrewfileがpushされます。</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew-file update</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>Homebrewでのパッケージ・アプリケーションの管理についてまとめました。
+本当は私の使っているおすすめアプリまで紹介しようと思いましたが、記事のまとまりがなくなるのでそれは別の記事で紹介します。</p>
+<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a>参照</h2><ul>
+<li><a href="https://brew.sh/index_ja" target="_blank" rel="noopener">Homebrew</a></li>
+<li><a href="https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew" target="_blank" rel="noopener">Brewfile</a></li>
+<li><a href="https://docs.brew.sh/Shell-Completion" target="_blank" rel="noopener">Homebrew Shell Completion</a></li>
+<li><a href>Homebrew-cask</a></li>
+<li><a href="https://homebrew-file.readthedocs.io/en/latest/" target="_blank" rel="noopener">homebrew-file</a></li>
+</ul>
+</body></html>
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/07/rdkit-draw-mol/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/homebrew/" rel="tag">homebrew</a>, <a class="has-link-grey -link" href="/tags/macOS/" rel="tag">macOS</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -194,11 +253,56 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/07/rdkit-draw-mol/">
+                <span class="level-item">rdMolDraw2Dを用いて単色の分子を描画する</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://sishida21.github.io/2020/01/14/homebrew/';
+        this.page.identifier = '2020/01/14/homebrew/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'https-sishida21-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
 </div>
                 
 
@@ -891,7 +995,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                    <img src="/images/benzene.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理" height="28">
                 
                 </a>
                 <p class="is-size-7">
