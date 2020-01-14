@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sishida21.github.io/images/og_image.png">
 <meta property="article:published_time" content="2020-01-07T08:07:20.000Z">
-<meta property="article:modified_time" content="2020-01-07T08:39:30.174Z">
+<meta property="article:modified_time" content="2020-01-14T10:28:52.196Z">
 <meta property="article:author" content="Shoichi Ishida">
 <meta property="article:tag" content="rdkit">
 <meta property="article:tag" content="cheminformatics">
@@ -175,22 +175,28 @@
 <a id="more"></a>
 
 <p>rdMolDraw2Dを使った基本的な分子の描画方法については、<a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">こちらのブログ</a>に丁寧にまとめられていますのでそちらを参照ください。</p>
-<h2 id="環境・ライブラリ"><a href="#環境・ライブラリ" class="headerlink" title="環境・ライブラリ"></a>環境・ライブラリ</h2><ul>
-<li>python: 3.6</li>
-<li>rdkit: 2019.09.2</li>
-<li>ipython: 7.1.1</li>
+<h2 id="環境・ライブラリ"><a href="#環境・ライブラリ" class="headerlink" title="環境・ライブラリ"></a><font color="olive">環境・ライブラリ</font></h2><hr>
+
+<ul>
+<li>python: 3.6  </li>
+<li>rdkit: 2019.09.2  </li>
+<li>ipython: 7.1.1  </li>
 </ul>
-<h2 id="スクリプト"><a href="#スクリプト" class="headerlink" title="スクリプト"></a>スクリプト</h2><p>以下のスクリプトを実行すると黒色単色で分子を描画することができます。</p>
+<h2 id="スクリプト"><a href="#スクリプト" class="headerlink" title="スクリプト"></a><font color="olive">スクリプト</font></h2><hr>
+
+<p>以下のスクリプトを実行すると黒色単色で分子を描画することができます。</p>
 <script src="https://gist.github.com/sishida21/cc724610bdea11aa8f79746b9ebed8f3.js"></script>
 
 <p>このスクリプトの出力ファイルの中身は以下の通りです。</p>
 <img src="/2020/01/07/rdkit-draw-mol/mol.svg" class title="penicillin">
 
-<h2 id="解説"><a href="#解説" class="headerlink" title="解説"></a>解説</h2><p>分子の色を調整しているのは12行目の <code>drawer.drawOptions().updateAtomPalette({k: (0, 0, 0) for k in DrawingOptions.elemDict.keys()})</code> になります。</p>
+<h2 id="解説"><a href="#解説" class="headerlink" title="解説"></a><font color="olive">解説</font></h2><hr>
+
+<p>分子の色を調整しているのは12行目の <code>drawer.drawOptions().updateAtomPalette({k: (0, 0, 0) for k in DrawingOptions.elemDict.keys()})</code> になります。</p>
 <ol>
-<li><code>DrawingOptions.elemDict.keys()</code> で分子中の各原子のkeyを取得</li>
-<li>取得したkeyに <code>(0, 0, 0)</code> を割り当てる。（これはRGB表記の黒を意味しています）</li>
-<li>作成したdictを <code>drawer.drawOptions().updateAtomPalette()</code> を使ってatom paletteの更新</li>
+<li><code>DrawingOptions.elemDict.keys()</code> で分子中の各原子のkeyを取得  </li>
+<li>取得したkeyに <code>(0, 0, 0)</code> を割り当てる。（これはRGB表記の黒を意味しています）  </li>
+<li>作成したdictを <code>drawer.drawOptions().updateAtomPalette()</code> を使ってatom paletteの更新  </li>
 </ol>
 <p>以上の処理で分子の色を調整しています。RGB表記の値を変えれば望みの色に分子を統一することが可能です。</p>
 <p>12行目をコメントアウトすると、以下の通りヘテロ原子に色がついた分子の描画ができます。</p>
@@ -198,8 +204,9 @@
 
 <p>他にも色々とdrawerのオプションは調整できますが、それは<a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">RDkitのAPIドキュメント</a>を参照してください。</p>
 <p>以上で終わります。</p>
-<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a>参照</h2><p><a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">RDKitでの構造式描画を詳しく解説</a>
-<a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">rdkit.Chem.Draw.rdMolDraw2D module</a></p>
+<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><hr>
+
+<p><a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">RDKitでの構造式描画を詳しく解説</a><br><a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">rdkit.Chem.Draw.rdMolDraw2D module</a>  </p>
 </body></html>
         </div>
         
