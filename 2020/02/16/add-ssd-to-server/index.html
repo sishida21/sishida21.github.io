@@ -7,16 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: book_scanning - sishida21.github.io</title>
+<title>手持ちのPCにSSDを増設〜マウントするまでの流れ（Ubuntu 18.04） - sishida21.github.io</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="sishida21.github.io">
-<meta property="og:url" content="https://sishida21.github.io/tags/book-scanning/index.html">
+    <meta name="description" content="手持ちのUbuntu 18.04のPCにSSDを増設してからマウントするまでの流れ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手持ちのPCにSSDを増設〜マウントするまでの流れ（Ubuntu 18.04）">
+<meta property="og:url" content="https://sishida21.github.io/2020/02/16/add-ssd-to-server/index.html">
 <meta property="og:site_name" content="sishida21.github.io">
+<meta property="og:description" content="手持ちのUbuntu 18.04のPCにSSDを増設してからマウントするまでの流れ">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sishida21.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-02-15T20:16:38.000Z">
+<meta property="article:modified_time" content="2020-02-15T20:16:38.951Z">
 <meta property="article:author" content="Shoichi Ishida">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sishida21.github.io/images/og_image.png">
 
@@ -84,7 +90,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                <img src="/images/benzene.svg" alt="手持ちのPCにSSDを増設〜マウントするまでの流れ（Ubuntu 18.04）" height="28">
             
             </a>
         </div>
@@ -133,35 +139,24 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">book_scanning</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-02T04:51:17.000Z">2020-01-02</time>
+                <time class="level-item has-text-grey" datetime="2020-02-15T20:16:38.000Z">2020-02-16</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/lifehack/">lifehack</a>
+                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 785 words)
+                    7 minutes read (About 1115 words)
                 </span>
                 
                 
@@ -170,22 +165,67 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/02/book-to-pdf/">本の自炊（PDF化）〜管理方法(iPhone, iPadユーザー向け)</a>
+                手持ちのPCにSSDを増設〜マウントするまでの流れ（Ubuntu 18.04）
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>私はいつも年末年始に一年間で購入した書籍をPDF化（自炊）して処分・整理しています（Kindleで売られていない書籍はまだまだ多いです）。
-そこでこの記事では私が書籍の自炊をする際に使用している道具・アプリの紹介と手順をまとめていきます。</p></body></html>
+            <html><head></head><body><p>研究室に余っているSSDがあったので、初めてPCへの増設作業をしました。この記事ではその際に調べたことと増設作業についてまとめていきます。</p>
+<a id="more"></a>
+
+<h2 id="環境・使用したもの"><a href="#環境・使用したもの" class="headerlink" title="環境・使用したもの"></a><font color="olive">環境・使用したもの</font></h2><ul>
+<li><a href="https://www.pc-koubou.jp/products/detail.php?product_id=664151" target="_blank" rel="noopener">LEVEL-FM29-LCi9XE-XYVI</a><ul>
+<li>Ubuntu 18.04</li>
+<li>空き拡張スロット：PCI Express3.0 [x16] × 2 (一つはx8動作)</li>
+</ul>
+</li>
+<li><a href="[https://www.amazon.co.jp/INTEL-3D-NAND%E6%8A%80%E8%A1%93%E3%82%92%E6%90%AD%E8%BC%89-%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AB%C2%AESSD660P%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-SSDPEKNW020T8X1/dp/B07GCLLKDC/ref=asc_df_B07GCLLKDC/?tag=jpgo-22&linkCode=df0&hvadid=280312438980&hvpos=&hvnetw=g&hvrand=10849779380834022678&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009507&hvtargid=pla-538484442890&psc=1](https://www.amazon.co.jp/INTEL-3D-NAND技術を搭載-インテル®SSD660Pシリーズ-SSDPEKNW020T8X1/dp/B07GCLLKDC/ref=asc_df_B07GCLLKDC/?tag=jpgo-22&linkCode=df0&hvadid=280312438980&hvpos=&hvnetw=g&hvrand=10849779380834022678&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009507&hvtargid=pla-538484442890&psc=1)">M.2 SSD</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B07H81VW29/ref=cm_sw_r_cp_api_i_WjsmEb67Y5C0G?language=ja_JP" target="_blank" rel="noopener">M.2 PCIe アダプター</a></li>
+</ul>
+<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a><font color="olive">手順</font></h2><h3 id="M-2-SSDをM-2-PCIe-アダプターに取り付ける"><a href="#M-2-SSDをM-2-PCIe-アダプターに取り付ける" class="headerlink" title="M.2 SSDをM.2 PCIe アダプターに取り付ける"></a><font color="olivedrab">M.2 SSDをM.2 PCIe アダプターに取り付ける</font></h3><p>PCの空き拡張スロットはPCIe3.0[x16]規格だったので、M.2 SSDを取り付けられるように変換アダプタが必要です。今回はとりあえず<a href="https://www.amazon.co.jp/dp/B07H81VW29/ref=cm_sw_r_cp_api_i_WjsmEb67Y5C0G?language=ja_JP" target="_blank" rel="noopener">手ごろなアダプタ</a>にしました。購入する際の注意点としては</p>
+<ul>
+<li>x2, x4, x8, x16で大きさが違う</li>
+<li>ヒートシンクをつける（SSDは発熱がすごいらしい）  </li>
+</ul>
+<p>あたりかなと思いました。</p>
+<h3 id="PCの空き拡張スロットへ取り付け"><a href="#PCの空き拡張スロットへ取り付け" class="headerlink" title="PCの空き拡張スロットへ取り付け"></a><font color="olivedrab">PCの空き拡張スロットへ取り付け</font></h3><p>取り付け作業は<a href="http://jisakupc-technical.info/product/description/step8/" target="_blank" rel="noopener">こちらのサイト</a>を参考にしました。簡単にできます。</p>
+<h3 id="取り付けたSSDをマウントする"><a href="#取り付けたSSDをマウントする" class="headerlink" title="取り付けたSSDをマウントする"></a><font color="olivedrab">取り付けたSSDをマウントする</font></h3><ol>
+<li><p>増設したSSDのデバイス名の確認</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></tbody></table></figure>
+
+<p>このコマンドを打つとずらずらとデバイスについての情報が出てくるので、そこから取り付けたSSDのデバイス名を見つけます。今回はこんな感じで <code>/dev/nvme3n1</code>に割り当てられていました。</p>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Disk /dev/nvme3n1: 1.9 TiB, 2048408248320 bytes, 4000797360 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: gpt</span><br><span class="line">Disk identifier: B7C3AC72-0806-487B-B088-8C6C4C53BCD5</span><br><span class="line"></span><br><span class="line">Device         Start        End    Sectors  Size Type</span><br><span class="line">/dev/nvme3n1p1 65535 4000780679 4000715145  1.9T Linux filesystem</span><br></pre></td></tr></tbody></table></figure>
+
+<p>※もしパーティションを作成していなかったら（<code>/dev/####p1</code>みたいにp#が表示されない）、<a href="https://www.atmarkit.co.jp/ait/articles/1803/08/news017.html" target="_blank" rel="noopener"><code>parted</code>コマンド</a>を使ってパーティションを作成してください。</p>
+</li>
+<li><p>1で調べたデバイス名のUUIDを調べる</p>
+<p>デバイス名は起動するたびに変わる可能性があるらしく、UUIDで起動時マウントを設定してあげるのが安全だそうです（<a href="https://clean-copy-of-onenote.hatenablog.com/entry/boot_mount_by_uuid" target="_blank" rel="noopener">こちらのサイト参照</a>）。以下のコマンドで確認できる。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /dev/disk/by-uuid/</span><br></pre></td></tr></tbody></table></figure>
+
+<p>調べたUUIDはメモっておく。</p>
+</li>
+<li><p><code>/etc/fstab</code> にて起動マウントの設定</p>
+<p>下記のように記載する。</p>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UUID=&lt;調べたUUID&gt; &lt;マウント先のディレクトリ&gt; &lt;フォーマット&gt; defaults 0 0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>事前に <code>/etc/fstab</code>の書式については把握しておくと良いです。<a href="/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/" title="こちらの記事">こちらの記事</a>にも記載してあるのでご覧ください。</p>
+</li>
+</ol>
+<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a><font color="olive">終わりに</font></h2><p>初めての増設作業で、わからないことばかりでかなり調べました。一回できてしまうと簡単な流れなのですが、かなりの試行錯誤をしました。。</p>
+<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><p><a href="http://jisakupc-technical.info/product/description/step8/" target="_blank" rel="noopener">手順8！グラフィックボードなどの拡張ボードの取り付け！</a></p>
+<p><a href="https://kazmax.zpp.jp/linux_beginner/fdisk_l.html" target="_blank" rel="noopener">Linux ハードディスクのデバイス名を確認する</a></p>
+<p><a href="https://clean-copy-of-onenote.hatenablog.com/entry/boot_mount_by_uuid" target="_blank" rel="noopener">起動時のマウントは UUID にすべき！</a></p>
+</body></html>
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/02/book-to-pdf/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="has-link-grey -link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -193,11 +233,56 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/">
+                <span class="level-item">Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://sishida21.github.io/2020/02/16/add-ssd-to-server/';
+        this.page.identifier = '2020/02/16/add-ssd-to-server/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'https-sishida21-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
 </div>
                 
 
@@ -990,7 +1075,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                    <img src="/images/benzene.svg" alt="手持ちのPCにSSDを増設〜マウントするまでの流れ（Ubuntu 18.04）" height="28">
                 
                 </a>
                 <p class="is-size-7">
