@@ -7,16 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: setup - sishida21.github.io</title>
+<title>Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする - sishida21.github.io</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="sishida21.github.io">
-<meta property="og:url" content="https://sishida21.github.io/tags/setup/index.html">
+    <meta name="description" content="ownCloudに大量のファイルをアップロードする際、リモートサーバ からローカルに落としてからやるのは非常に効率が悪いです。そこでこの記事ではUbuntuサーバ18.04にownCloudをマウント〜ファイルのアップロードまでの手順を紹介します。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする">
+<meta property="og:url" content="https://sishida21.github.io/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/index.html">
 <meta property="og:site_name" content="sishida21.github.io">
+<meta property="og:description" content="ownCloudに大量のファイルをアップロードする際、リモートサーバ からローカルに落としてからやるのは非常に効率が悪いです。そこでこの記事ではUbuntuサーバ18.04にownCloudをマウント〜ファイルのアップロードまでの手順を紹介します。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sishida21.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-02-15T07:30:42.000Z">
+<meta property="article:modified_time" content="2020-02-15T07:30:42.341Z">
 <meta property="article:author" content="Shoichi Ishida">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="ownCloud">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sishida21.github.io/images/og_image.png">
 
@@ -84,7 +91,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                <img src="/images/benzene.svg" alt="Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする" height="28">
             
             </a>
         </div>
@@ -133,35 +140,24 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">setup</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-09T11:57:03.000Z">2019-12-09</time>
+                <time class="level-item has-text-grey" datetime="2020-02-15T07:30:42.000Z">2020-02-15</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/programming/">programming</a>
+                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 557 words)
+                    4 minutes read (About 668 words)
                 </span>
                 
                 
@@ -170,22 +166,65 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/12/09/pyenv/">Python環境構築(pyenv + pyenv-virtualenv)</a>
+                Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>普段私はpyenv + pyenv-virtualenvの組み合わせでpythonの環境管理をしています。今回の記事ではその設定方法について記載していきます。
-記事中で登場するファイルをダウンロードすればそのまま使用できます。</p></body></html>
+            <html><head></head><body><p>ownCloudに大量のファイルをアップロードする際、リモートサーバ からローカルに落としてからやるのは非常に効率が悪いです。そこでこの記事ではUbuntuサーバ18.04にownCloudをマウント〜ファイルのアップロードまでの手順を紹介します。</p>
+<a id="more"></a>
+
+<h2 id="環境・必要パッケージ"><a href="#環境・必要パッケージ" class="headerlink" title="環境・必要パッケージ"></a><font color="olive">環境・必要パッケージ</font></h2><ul>
+<li>Ubuntu 18.04 (sudoが使えること)</li>
+<li><a href="https://wiki.archlinux.jp/index.php/Davfs2" target="_blank" rel="noopener">Davfs2</a></li>
+<li><a href="https://owncloud.org/" target="_blank" rel="noopener">ownCloud </a>10.0.8</li>
+</ul>
+<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a><font color="olive">手順</font></h2><ol>
+<li>davfs2のインストールとマウントポイントの作成</li>
+</ol>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install davfs2</span><br><span class="line">sudo usermod -aG davfs2 &lt;username&gt;  <span class="hljs-comment"># add yourself to the davfs2 group</span></span><br><span class="line">mkdir ~/owncloud</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="2">
+<li>davfs2の設定</li>
+</ol>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.davfs2</span><br><span class="line">sudo cp /etc/davfs2/secrets ~/.davfs2/secrets  <span class="hljs-comment"># create personal davfs2 configuration file</span></span><br><span class="line">sudo chown &lt;username&gt;:&lt;username&gt; ~/.davfs2/secrets</span><br><span class="line">chmod 600 ~/.davfs2/secrets</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="3">
+<li>ownCloudのアカウント情報を <code>~/.davfs2/secrets</code>（davfs2の設定ファイル）に記入</li>
+</ol>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>example.orgは自分が使っているownCloudサーバのURLに置換する。</p>
+<ol start="4">
+<li><code>/etc/fstab</code> にownCloudのマウントの記入をする</li>
+</ol>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav　/home/&lt;username&gt;/owncloud davfs user,rw,noauto 0 0</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://wiki.archlinux.jp/index.php/Fstab" target="_blank" rel="noopener"><code>/etc/fstab</code></a> の各フィールドは以下になります。スペースかタブ区切りなので、そこら辺を注意してください。また、今回は自動マウントはして欲しくないのでnoautoで設定しています。</p>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;device&gt; &lt;mountpoint&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;fsck&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="5">
+<li>ownCloudのマウント</li>
+</ol>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount ~/owncloud</span><br></pre></td></tr></tbody></table></figure>
+
+<p>これでownCloudがUbuntu server にマウントできます。これ以降は<code>mount</code> と <code>umount</code>をするだけで良いです。またファイルのアップロードをする際は<code>rsync</code>を使うと差分のアップロードとかができるので良いです。</p>
+<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a><font color="olive">終わりに</font></h2><p>ローカルPCで基本作業をしない人はこの設定をすると楽なのでおすすめです。</p>
+<h2 id="ハプニング"><a href="#ハプニング" class="headerlink" title="ハプニング"></a><font color="olive">ハプニング</font></h2><p>最初にownCloudのマウントポイントを、別でマウントしているディレクトリに設定した際にbootが失敗する事態になりました。僕のようにならないよう、事前にfstabの仕組みをしっかり理解した上で作業するようにしてください。。</p>
+<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><p><a href="https://wiki.archlinux.jp/index.php/Davfs2" target="_blank" rel="noopener">Davfs2</a></p>
+<p><a href="https://doc.owncloud.org/server/8.2/user_manual/files/access_webdav.html" target="_blank" rel="noopener">Accessing ownCloud Files Using WebDAV</a></p>
+<p><a href="https://wiki.archlinux.jp/index.php/Fstab" target="_blank" rel="noopener">fstab</a></p>
+</body></html>
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/12/09/pyenv/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="has-link-grey -link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>, <a class="has-link-grey -link" href="/tags/ownCloud/" rel="tag">ownCloud</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -193,11 +232,56 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/27/role-assign-slack-bot/">
+                <span class="level-item">当番をランダムに決めて通知してくれるSlack BotをGoogle Apps Scriptで作った</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://sishida21.github.io/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/';
+        this.page.identifier = '2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'https-sishida21-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
 </div>
                 
 
@@ -990,7 +1074,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/benzene.svg" alt="sishida21.github.io" height="28">
+                    <img src="/images/benzene.svg" alt="Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする" height="28">
                 
                 </a>
                 <p class="is-size-7">

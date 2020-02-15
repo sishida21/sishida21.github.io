@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/</loc>
+    
+    <lastmod>2020-02-15T07:30:42.341Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/01/27/role-assign-slack-bot/</loc>
     
     <lastmod>2020-01-28T09:31:50.589Z</lastmod>
