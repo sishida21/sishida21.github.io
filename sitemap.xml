@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/about/index.html</loc>
+    
+    <lastmod>2020-02-19T13:24:38.010Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/02/16/add-ssd-to-server/</loc>
     
     <lastmod>2020-02-15T20:20:19.400Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>https://sishida21.github.io/2019/12/09/intro/</loc>
     
     <lastmod>2019-12-19T12:45:04.061Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/about/index.html</loc>
-    
-    <lastmod>2019-12-09T03:42:35.608Z</lastmod>
     
   </url>
   
