@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sishida21.github.io/images/og_image.png">
 <meta property="article:published_time" content="2019-12-09T11:57:03.000Z">
-<meta property="article:modified_time" content="2020-03-27T05:11:39.198Z">
+<meta property="article:modified_time" content="2020-03-27T05:24:41.267Z">
 <meta property="article:author" content="Shoichi Ishida">
 <meta property="article:tag" content="setup">
 <meta property="article:tag" content="python">
@@ -156,7 +156,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 658 words)
+                    4 minutes read (About 557 words)
                 </span>
                 
                 
@@ -179,7 +179,7 @@
 <p>下記のスクリプトをダウンロードして、</p>
 <script src="//gist.github.com/sishida21/8ca8c2592cf0e39f077c8bbf02a0197c.js?file=install_pyenv.sh"></script>
 <p>ターミナルを起動してダウンロードした場所に移動した後に、下記のコマンドを実行して下さい。</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># Install pyenv</span><br><span class="line">git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv</span><br><span class="line">echo '' >> $HOME/.bash_profile</span><br><span class="line">echo '# Setting for pyenv and pyenv-virtualenv' >> \$HOME/.bash_profile</span><br><span class="line">echo 'export PYENV_ROOT="\$HOME/.pyenv"' >> \$HOME/.bash_profile</span><br><span class="line">echo 'export PATH="\\$PYENV_ROOT/bin:\\$PATH"' >> \$HOME/.bash_profile</span><br><span class="line">echo 'if command -v pyenv 1>/dev/null 2>&1; then' >> \$HOME/.bash_profile</span><br><span class="line">echo '    eval "$\(pyenv init -)"' >> \$HOME/.bash_profile</span><br><span class="line">echo 'fi' >> \$HOME/.bash_profile</span><br><span class="line"></span><br><span class="line">source \$HOME/.bash_profile</span><br><span class="line"></span><br><span class="line"># Install pyenv-virtualenv</span><br><span class="line">git clone https://github.com/pyenv/pyenv-virtualenv.git \$(pyenv root)/plugins/pyenv-virtualenv</span><br><span class="line">echo 'eval "\$(pyenv virtualenv-init -)"' >> \$HOME/.bash_profile</span><br><span class="line">source \$HOME/.bash_profile</span><br><span class="line"></span><br><span class="line">echo DONE!</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install_pyenv.sh</span><br></pre></td></tr></tbody></table></figure>
 
 
 <p>インストールが終わったら一度ターミナルを立ち上げ直して下さい。
