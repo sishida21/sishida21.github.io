@@ -173,12 +173,12 @@
             <html><head></head><body><p>ownCloudに大量のファイルをアップロードする際、リモートサーバ からローカルに落としてからやるのは非常に効率が悪いです。そこでこの記事ではUbuntuサーバ18.04にownCloudをマウント〜ファイルのアップロードまでの手順を紹介します。</p>
 <a id="more"></a>
 
-<h2 id="環境・必要パッケージ"><a href="#環境・必要パッケージ" class="headerlink" title="環境・必要パッケージ"></a><font color="olive">環境・必要パッケージ</font></h2><ul>
+<h2><span id="環境必要パッケージ"><font color="olive">環境・必要パッケージ</font></span></h2><ul>
 <li>Ubuntu 18.04 (sudoが使えること)</li>
 <li><a href="https://wiki.archlinux.jp/index.php/Davfs2" target="_blank" rel="noopener">Davfs2</a></li>
 <li><a href="https://owncloud.org/" target="_blank" rel="noopener">ownCloud </a>10.0.8</li>
 </ul>
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a><font color="olive">手順</font></h2><ol>
+<h2><span id="手順"><font color="olive">手順</font></span></h2><ol>
 <li>davfs2のインストールとマウントポイントの作成</li>
 </ol>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install davfs2</span><br><span class="line">sudo usermod -aG davfs2 &lt;username&gt;  <span class="hljs-comment"># add yourself to the davfs2 group</span></span><br><span class="line">mkdir ~/owncloud</span><br></pre></td></tr></tbody></table></figure>
@@ -208,9 +208,9 @@
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount ~/owncloud</span><br></pre></td></tr></tbody></table></figure>
 
 <p>これでownCloudがUbuntu server にマウントできます。これ以降は<code>mount</code> と <code>umount</code>をするだけで良いです。またファイルのアップロードをする際は<code>rsync</code>を使うと差分のアップロードとかができるので良いです。</p>
-<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a><font color="olive">終わりに</font></h2><p>ローカルPCで基本作業をしない人はこの設定をすると楽なのでおすすめです。</p>
-<h2 id="ハプニング"><a href="#ハプニング" class="headerlink" title="ハプニング"></a><font color="olive">ハプニング</font></h2><p>最初にownCloudのマウントポイントを、別でマウントしているディレクトリに設定した際にbootが失敗する事態になりました。僕のようにならないよう、事前にfstabの仕組みをしっかり理解した上で作業するようにしてください。。</p>
-<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><p><a href="https://wiki.archlinux.jp/index.php/Davfs2" target="_blank" rel="noopener">Davfs2</a></p>
+<h2><span id="終わりに"><font color="olive">終わりに</font></span></h2><p>ローカルPCで基本作業をしない人はこの設定をすると楽なのでおすすめです。</p>
+<h2><span id="ハプニング"><font color="olive">ハプニング</font></span></h2><p>最初にownCloudのマウントポイントを、別でマウントしているディレクトリに設定した際にbootが失敗する事態になりました。僕のようにならないよう、事前にfstabの仕組みをしっかり理解した上で作業するようにしてください。。</p>
+<h2><span id="参照"><font color="olive">参照</font></span></h2><p><a href="https://wiki.archlinux.jp/index.php/Davfs2" target="_blank" rel="noopener">Davfs2</a></p>
 <p><a href="https://doc.owncloud.org/server/8.2/user_manual/files/access_webdav.html" target="_blank" rel="noopener">Accessing ownCloud Files Using WebDAV</a></p>
 <p><a href="https://wiki.archlinux.jp/index.php/Fstab" target="_blank" rel="noopener">fstab</a></p>
 </body></html>
@@ -334,7 +334,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            11
+                            12
                         </p>
                     </a>
                 </div>
@@ -516,6 +516,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -590,25 +609,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -626,7 +626,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -820,6 +820,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -894,25 +913,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -930,7 +930,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>

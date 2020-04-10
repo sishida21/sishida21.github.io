@@ -172,7 +172,7 @@
             <html><head></head><body><p>研究室に余っているSSDがあったので、初めてPCへの増設作業をしました。この記事ではその際に調べたことと増設作業についてまとめていきます。</p>
 <a id="more"></a>
 
-<h2 id="環境・使用したもの"><a href="#環境・使用したもの" class="headerlink" title="環境・使用したもの"></a><font color="olive">環境・使用したもの</font></h2><ul>
+<h2><span id="環境使用したもの"><font color="olive">環境・使用したもの</font></span></h2><ul>
 <li><a href="https://www.pc-koubou.jp/products/detail.php?product_id=664151" target="_blank" rel="noopener">LEVEL-FM29-LCi9XE-XYVI</a><ul>
 <li>Ubuntu 18.04</li>
 <li>空き拡張スロット：PCI Express3.0 [x16] × 2 (一つはx8動作)</li>
@@ -181,14 +181,14 @@
 <li><a href="[https://www.amazon.co.jp/INTEL-3D-NAND%E6%8A%80%E8%A1%93%E3%82%92%E6%90%AD%E8%BC%89-%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AB%C2%AESSD660P%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-SSDPEKNW020T8X1/dp/B07GCLLKDC/ref=asc_df_B07GCLLKDC/?tag=jpgo-22&linkCode=df0&hvadid=280312438980&hvpos=&hvnetw=g&hvrand=10849779380834022678&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009507&hvtargid=pla-538484442890&psc=1](https://www.amazon.co.jp/INTEL-3D-NAND技術を搭載-インテル®SSD660Pシリーズ-SSDPEKNW020T8X1/dp/B07GCLLKDC/ref=asc_df_B07GCLLKDC/?tag=jpgo-22&linkCode=df0&hvadid=280312438980&hvpos=&hvnetw=g&hvrand=10849779380834022678&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009507&hvtargid=pla-538484442890&psc=1)">M.2 SSD</a></li>
 <li><a href="https://www.amazon.co.jp/dp/B07H81VW29/ref=cm_sw_r_cp_api_i_WjsmEb67Y5C0G?language=ja_JP" target="_blank" rel="noopener">M.2 PCIe アダプター</a></li>
 </ul>
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a><font color="olive">手順</font></h2><h3 id="M-2-SSDをM-2-PCIe-アダプターに取り付ける"><a href="#M-2-SSDをM-2-PCIe-アダプターに取り付ける" class="headerlink" title="M.2 SSDをM.2 PCIe アダプターに取り付ける"></a><font color="olivedrab">M.2 SSDをM.2 PCIe アダプターに取り付ける</font></h3><p>PCの空き拡張スロットはPCIe3.0[x16]規格だったので、M.2 SSDを取り付けられるように変換アダプタが必要です。今回はとりあえず<a href="https://www.amazon.co.jp/dp/B07H81VW29/ref=cm_sw_r_cp_api_i_WjsmEb67Y5C0G?language=ja_JP" target="_blank" rel="noopener">手ごろなアダプタ</a>にしました。購入する際の注意点としては</p>
+<h2><span id="手順"><font color="olive">手順</font></span></h2><h3><span id="m2-ssdをm2-pcie-アダプターに取り付ける"><font color="olivedrab">M.2 SSDをM.2 PCIe アダプターに取り付ける</font></span></h3><p>PCの空き拡張スロットはPCIe3.0[x16]規格だったので、M.2 SSDを取り付けられるように変換アダプタが必要です。今回はとりあえず<a href="https://www.amazon.co.jp/dp/B07H81VW29/ref=cm_sw_r_cp_api_i_WjsmEb67Y5C0G?language=ja_JP" target="_blank" rel="noopener">手ごろなアダプタ</a>にしました。購入する際の注意点としては</p>
 <ul>
 <li>x2, x4, x8, x16で大きさが違う</li>
 <li>ヒートシンクをつける（SSDは発熱がすごいらしい）  </li>
 </ul>
 <p>あたりかなと思いました。</p>
-<h3 id="PCの空き拡張スロットへ取り付け"><a href="#PCの空き拡張スロットへ取り付け" class="headerlink" title="PCの空き拡張スロットへ取り付け"></a><font color="olivedrab">PCの空き拡張スロットへ取り付け</font></h3><p>取り付け作業は<a href="http://jisakupc-technical.info/product/description/step8/" target="_blank" rel="noopener">こちらのサイト</a>を参考にしました。簡単にできます。</p>
-<h3 id="取り付けたSSDをマウントする"><a href="#取り付けたSSDをマウントする" class="headerlink" title="取り付けたSSDをマウントする"></a><font color="olivedrab">取り付けたSSDをマウントする</font></h3><ol>
+<h3><span id="pcの空き拡張スロットへ取り付け"><font color="olivedrab">PCの空き拡張スロットへ取り付け</font></span></h3><p>取り付け作業は<a href="http://jisakupc-technical.info/product/description/step8/" target="_blank" rel="noopener">こちらのサイト</a>を参考にしました。簡単にできます。</p>
+<h3><span id="取り付けたssdをマウントする"><font color="olivedrab">取り付けたSSDをマウントする</font></span></h3><ol>
 <li><p>増設したSSDのデバイス名の確認</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></tbody></table></figure>
 
@@ -210,8 +210,8 @@
 <p>事前に <code>/etc/fstab</code>の書式については把握しておくと良いです。<a href="/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/" title="こちらの記事">こちらの記事</a>にも記載してあるのでご覧ください。</p>
 </li>
 </ol>
-<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a><font color="olive">終わりに</font></h2><p>初めての増設作業で、わからないことばかりでかなり調べました。一回できてしまうと簡単な流れなのですが、かなりの試行錯誤をしました。。</p>
-<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><p><a href="http://jisakupc-technical.info/product/description/step8/" target="_blank" rel="noopener">手順8！グラフィックボードなどの拡張ボードの取り付け！</a></p>
+<h2><span id="終わりに"><font color="olive">終わりに</font></span></h2><p>初めての増設作業で、わからないことばかりでかなり調べました。一回できてしまうと簡単な流れなのですが、かなりの試行錯誤をしました。。</p>
+<h2><span id="参照"><font color="olive">参照</font></span></h2><p><a href="http://jisakupc-technical.info/product/description/step8/" target="_blank" rel="noopener">手順8！グラフィックボードなどの拡張ボードの取り付け！</a></p>
 <p><a href="https://kazmax.zpp.jp/linux_beginner/fdisk_l.html" target="_blank" rel="noopener">Linux ハードディスクのデバイス名を確認する</a></p>
 <p><a href="https://clean-copy-of-onenote.hatenablog.com/entry/boot_mount_by_uuid" target="_blank" rel="noopener">起動時のマウントは UUID にすべき！</a></p>
 </body></html>
@@ -335,7 +335,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            11
+                            12
                         </p>
                     </a>
                 </div>
@@ -517,6 +517,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -591,25 +610,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -627,7 +627,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -821,6 +821,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -895,25 +914,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -931,7 +931,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>

@@ -21,8 +21,8 @@
 <meta property="article:published_time" content="2020-01-07T08:07:20.000Z">
 <meta property="article:modified_time" content="2020-01-14T10:28:52.196Z">
 <meta property="article:author" content="Shoichi Ishida">
-<meta property="article:tag" content="rdkit">
 <meta property="article:tag" content="cheminformatics">
+<meta property="article:tag" content="rdkit">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sishida21.github.io/images/og_image.png">
 
@@ -175,14 +175,14 @@
 <a id="more"></a>
 
 <p>rdMolDraw2Dを使った基本的な分子の描画方法については、<a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">こちらのブログ</a>に丁寧にまとめられていますのでそちらを参照ください。</p>
-<h2 id="環境・ライブラリ"><a href="#環境・ライブラリ" class="headerlink" title="環境・ライブラリ"></a><font color="olive">環境・ライブラリ</font></h2><hr>
+<h2><span id="環境ライブラリ"><font color="olive">環境・ライブラリ</font></span></h2><hr>
 
 <ul>
 <li>python: 3.6  </li>
 <li>rdkit: 2019.09.2  </li>
 <li>ipython: 7.1.1  </li>
 </ul>
-<h2 id="スクリプト"><a href="#スクリプト" class="headerlink" title="スクリプト"></a><font color="olive">スクリプト</font></h2><hr>
+<h2><span id="スクリプト"><font color="olive">スクリプト</font></span></h2><hr>
 
 <p>以下のスクリプトを実行すると黒色単色で分子を描画することができます。</p>
 <script src="https://gist.github.com/sishida21/cc724610bdea11aa8f79746b9ebed8f3.js"></script>
@@ -190,7 +190,7 @@
 <p>このスクリプトの出力ファイルの中身は以下の通りです。</p>
 <img src="/2020/01/07/rdkit-draw-mol/mol.svg" class title="penicillin">
 
-<h2 id="解説"><a href="#解説" class="headerlink" title="解説"></a><font color="olive">解説</font></h2><hr>
+<h2><span id="解説"><font color="olive">解説</font></span></h2><hr>
 
 <p>分子の色を調整しているのは12行目の <code>drawer.drawOptions().updateAtomPalette({k: (0, 0, 0) for k in DrawingOptions.elemDict.keys()})</code> になります。</p>
 <ol>
@@ -204,9 +204,9 @@
 
 <p>他にも色々とdrawerのオプションは調整できますが、それは<a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">RDkitのAPIドキュメント</a>を参照してください。</p>
 <p>以上で終わります。</p>
-<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><hr>
+<h2><span id="参照"><font color="olive">参照</font></span></h2><hr>
 
-<p><a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">RDKitでの構造式描画を詳しく解説</a><br><a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">rdkit.Chem.Draw.rdMolDraw2D module</a>  </p>
+<p><a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2" target="_blank" rel="noopener">RDKitでの構造式描画を詳しく解説</a><br><a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D" target="_blank" rel="noopener">rdkit.Chem.Draw.rdMolDraw2D module</a></p>
 </body></html>
         </div>
         
@@ -328,7 +328,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            11
+                            12
                         </p>
                     </a>
                 </div>
@@ -510,6 +510,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -584,25 +603,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -620,7 +620,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -814,6 +814,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -888,25 +907,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -924,7 +924,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>

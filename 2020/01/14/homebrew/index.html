@@ -175,12 +175,12 @@ macOSにないパッケージは大体これでインストール可能なのと
 MacユーザーならHomebrewを使わない理由はないくらいには便利なので、ぜひ以下の内容を参考に導入してみてください。</p>
 <a id="more"></a>
 
-<h2 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a><font color="olive">Homebrew</font></h2><hr>
+<h2><span id="homebrew"><font color="olive">Homebrew</font></span></h2><hr>
 
 <p>macOSにないパッケージをインストールしてくれるmacOS用パッケージマネージャーです。</p>
 <a href="https://brew.sh/index_ja" class="link-preview" target="\_blank" rel="nofollow"><div class="link-area"><div class="og-image"><img src="https://brew.sh/assets/img/homebrew-social-card.png"></div><div class="descriptions"><div class="og-title">Homebrew</div><div class="og-description">The Missing Package Manager for macOS (or Linux).</div></div></div></a>
 
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a><font color="olivedrab">Install</font></h3><p>インストールは下記をターミナルで実行するだけで完了です。</p>
+<h3><span id="install"><font color="olivedrab">Install</font></span></h3><p>インストールは下記をターミナルで実行するだけで完了です。</p>
 <figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>このままだとbrewコマンドのtab補完が効かないので、以下の通り <code>~/.bash_profile</code> に追記して <code>bash-completion</code> をインストールします。</p>
@@ -188,7 +188,7 @@ MacユーザーならHomebrewを使わない理由はないくらいには便利
 
 <figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install bash-completion</span><br></pre></td></tr></tbody></table></figure>
 <p>あとは <code>~/.bash_profile</code> を再読み込みするか新しいターミナルを立ち上げればtab補完が使えるようになります。</p>
-<h3 id="基本コマンド"><a href="#基本コマンド" class="headerlink" title="基本コマンド"></a><font color="olivedrab">基本コマンド</font></h3><p>コマンド一覧は<a href="https://docs.brew.sh/Manpage" target="_blank" rel="noopener">公式ドキュメント</a>を参照してください。
+<h3><span id="基本コマンド"><font color="olivedrab">基本コマンド</font></span></h3><p>コマンド一覧は<a href="https://docs.brew.sh/Manpage" target="_blank" rel="noopener">公式ドキュメント</a>を参照してください。
 色々と用意されていますが基本は、</p>
 <ul>
 <li>brew install <em>fomula</em></li>
@@ -197,32 +197,32 @@ MacユーザーならHomebrewを使わない理由はないくらいには便利
 <li>brew doctor  # brew関連のtrouble shootingをしてくれる  </li>
 </ul>
 <p>あたりが使えれば問題ないと思います。</p>
-<h3 id="Brewfile"><a href="#Brewfile" class="headerlink" title="Brewfile"></a><font color="olivedrab">Brewfile</font></h3><p><a href="https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew" target="_blank" rel="noopener">Homebrew用のGemfile</a>です。
+<h3><span id="brewfile"><font color="olivedrab">Brewfile</font></span></h3><p><a href="https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew" target="_blank" rel="noopener">Homebrew用のGemfile</a>です。
 ここにbrewを通してインストールしたパッケージの依存関係が記載されます。
 Brewfileは後述のHomebrew-fileを使って管理します。</p>
-<h2 id="Homebrew-cask"><a href="#Homebrew-cask" class="headerlink" title="Homebrew-cask"></a><font color="olive">Homebrew-cask</font></h2><hr>
+<h2><span id="homebrew-cask"><font color="olive">Homebrew-cask</font></span></h2><hr>
 
 <p>macOSのGUIアプリケーション（Google Chrome、Office系アプリ、etc.）もHomebrewで管理できるようにしてくれる<a href="https://github.com/Homebrew/homebrew-cask" target="_blank" rel="noopener">拡張パッケージ</a>です。
 大体のGUIアプリケーションはこれでインストールできるので、これを使うとGUIアプリケーションの管理も楽になります。
 最新のHomebrewだと標準で搭載されていると思います。
 なのでインストールはTab補完の設定だけ記載します。</p>
-<h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a><font color="olivedrab">Install</font></h3><figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install brew-cask-completion</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="install"><font color="olivedrab">Install</font></span></h3><figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install brew-cask-completion</span><br></pre></td></tr></tbody></table></figure>
 <p><code>~/.bash_profile</code> への設定はHomebrewのtab補完の設定時にやっているもので大丈夫です。</p>
-<h3 id="基本コマンド-1"><a href="#基本コマンド-1" class="headerlink" title="基本コマンド"></a><font color="olivedrab">基本コマンド</font></h3><ul>
+<h3><span id="基本コマンド"><font color="olivedrab">基本コマンド</font></span></h3><ul>
 <li>brew cask install <em>application</em></li>
 <li>brew cask uninstall <em>application</em></li>
 <li>brew cask list  # Homebrew-caskを通してインストールしたアプリ一覧の表示</li>
 </ul>
-<h2 id="Homebrew-file"><a href="#Homebrew-file" class="headerlink" title="Homebrew-file"></a><font color="olive">Homebrew-file</font></h2><hr>
+<h2><span id="homebrew-file"><font color="olive">Homebrew-file</font></span></h2><hr>
 
 <p>Brewfileを管理してくれる<a href="https://github.com/rcmdnk/homebrew-file" target="_blank" rel="noopener">パッケージ</a>です。
 私はこれを使ってBrewfileをgit管理することでバックアップをとっています。</p>
-<h3 id="Install-2"><a href="#Install-2" class="headerlink" title="Install"></a><font color="olivedrab">Install</font></h3><figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install rcmdnk/file/brew-file</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="install"><font color="olivedrab">Install</font></span></h3><figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install rcmdnk/file/brew-file</span><br></pre></td></tr></tbody></table></figure>
 
 <p><code>~/.bashrc</code> に以下を追加する（※ この設定は私のMacではうまく機能しないので、使用していません。）</p>
 <figure class="highlight sh hljs"><figcaption><span>~/.bashrc</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> [ -f $(brew --prefix)/etc/brew-wrap ];<span class="hljs-keyword">then</span></span><br><span class="line">  <span class="hljs-built_in">source</span> $(brew --prefix)/etc/brew-wrap</span><br><span class="line"><span class="hljs-keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="Brewfileの作成・管理"><a href="#Brewfileの作成・管理" class="headerlink" title="Brewfileの作成・管理"></a><font color="olivedrab">Brewfileの作成・管理</font></h3><p>公式ドキュメントには<a href="https://homebrew-file.readthedocs.io/en/latest/getting_started.html" target="_blank" rel="noopener">DropboxとGitでの管理方法</a>が記載されていますが、私はGitで管理していますのでその方法について記載します。<br>※公式ドキュメントではbrew-wrapが設定できている前提で記載されています。今回は設定していないのでbrew-fileを使っています。</p>
+<h3><span id="brewfileの作成管理"><font color="olivedrab">Brewfileの作成・管理</font></span></h3><p>公式ドキュメントには<a href="https://homebrew-file.readthedocs.io/en/latest/getting_started.html" target="_blank" rel="noopener">DropboxとGitでの管理方法</a>が記載されていますが、私はGitで管理していますのでその方法について記載します。<br>※公式ドキュメントではbrew-wrapが設定できている前提で記載されています。今回は設定していないのでbrew-fileを使っています。</p>
 <p>まずは自分のGitのレポジトリを設定します。</p>
 <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew-file set_repo</span><br></pre></td></tr></tbody></table></figure>
 <p>以下のコマンドを実行すると <code>~/.config/brewfile/Brewfile</code> にBrewfileが作成されます。</p>
@@ -230,11 +230,11 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
 <p>そして以下のコマンドを実行すると設定したGitにBrewfileがpushされます。</p>
 <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew-file update</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a><font color="olive">終わりに</font></h2><hr>
+<h2><span id="終わりに"><font color="olive">終わりに</font></span></h2><hr>
 
 <p>Homebrewでのパッケージ・アプリケーションの管理についてまとめました。
 本当は私の使っているおすすめアプリまで紹介しようと思いましたが、記事のまとまりがなくなるのでそれは別の記事で紹介します。</p>
-<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><hr>
+<h2><span id="参照"><font color="olive">参照</font></span></h2><hr>
 
 <ul>
 <li><a href="https://brew.sh/index_ja" target="_blank" rel="noopener">Homebrew</a></li>
@@ -364,7 +364,7 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            11
+                            12
                         </p>
                     </a>
                 </div>
@@ -546,6 +546,25 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -620,25 +639,6 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -656,7 +656,7 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -850,6 +850,25 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
         
         <article class="media">
             
+            <a href="/2020/04/10/recommend-books/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-10T08:19:05.000Z">2020-04-10</time></div>
+                    <a href="/2020/04/10/recommend-books/" class="title has-link-black-ter is-size-6 has-text-weight-normal">非情報系の学生がゼロから機械学習系の研究をするために勉強した書籍紹介（PC・サーバ・インフラ編）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/09/chemaxon-academia-install/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ChemAxon Academic License取得方法＆インストール方法">
@@ -924,25 +943,6 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/14/homebrew/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HomebrewでMacのパッケージ・アプリケーションの管理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-13T17:24:08.000Z">2020-01-14</time></div>
-                    <a href="/2020/01/14/homebrew/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HomebrewでMacのパッケージ・アプリケーションの管理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/macOS/">macOS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -960,7 +960,7 @@ Brewfileは後述のHomebrew-fileを使って管理します。</p>
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
