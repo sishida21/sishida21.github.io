@@ -177,7 +177,7 @@
 <a id="more"></a>
 
 <p>動作確認はLinux, MaxOSでしてます。</p>
-<h2><span id="install-pyenv-and-pyenv-virtualenv"><font color="olive">Install pyenv and pyenv-virtualenv</font></span></h2><hr>
+<h2 id="install-pyenv-and-pyenv-virtualenv"><a href="#Install-pyenv-and-pyenv-virtualenv" class="headerlink" title="Install pyenv and pyenv-virtualenv"></a><font color="olive">Install pyenv and pyenv-virtualenv</font></h2><hr>
 
 <p>下記のスクリプトをダウンロードして、
 (追記：8行目の一部が数式として表示されているため、コピペする際はview rowで表示させてからコピペしてください。)</p>
@@ -188,16 +188,16 @@
 
 <p>インストールが終わったら一度ターミナルを立ち上げ直して下さい。
 これでpyenv + pyenv-virtualenvのインストールは完了です。</p>
-<h2><span id="set-virtual-environment"><font color="olive">Set virtual environment</font></span></h2><hr>
+<h2 id="set-virtual-environment"><a href="#Set-virtual-environment" class="headerlink" title="Set virtual environment"></a><font color="olive">Set virtual environment</font></h2><hr>
 
-<h3><span id="install-miniconda"><font color="olivedrab">Install miniconda</font></span></h3><p>python環境は全てpyenv-virtualenv上で管理しています。<br>そうすることで環境の使い捨てが簡単になるので便利です。</p>
+<h3 id="install-miniconda"><a href="#Install-miniconda" class="headerlink" title="Install miniconda"></a><font color="olivedrab">Install miniconda</font></h3><p>python環境は全てpyenv-virtualenv上で管理しています。<br>そうすることで環境の使い捨てが簡単になるので便利です。</p>
 <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pyenv install miniconda3-4.2.12</span><br><span class="line">pyenv shell miniconda3-4.2.12</span><br></pre></td></tr></tbody></table></figure>
 
-<h3><span id="create-home-environment"><font color="olivedrab">Create home environment</font></span></h3><p>インストールしたminiconda上でcondaコマンドを使用すると、condaのバージョンが上がってpyenvがおかしくなります。
+<h3 id="create-home-environment"><a href="#Create-home-environment" class="headerlink" title="Create home environment"></a><font color="olivedrab">Create home environment</font></h3><p>インストールしたminiconda上でcondaコマンドを使用すると、condaのバージョンが上がってpyenvがおかしくなります。
 それを防ぐために仮想home環境を作成し、そこをデフォルトの作業環境とします。</p>
 <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n home python=3.6</span><br><span class="line">pyenv global miniconda3-4.2.12/envs/home</span><br></pre></td></tr></tbody></table></figure>
 
-<h3><span id="create-test-environment"><font color="olivedrab">Create test environment</font></span></h3><p>あとはテーマ毎等で仮想環境を作って個別に管理します。
+<h3 id="create-test-environment"><a href="#Create-test-environment" class="headerlink" title="Create test environment"></a><font color="olivedrab">Create test environment</font></h3><p>あとはテーマ毎等で仮想環境を作って個別に管理します。
 そうすることで各環境を最小構成にすることができて干渉する心配もありません。<br>ここでは試しにcalc環境を作成します。</p>
 <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create -n calc python=3.6</span><br><span class="line">pyenv shell miniconda3-4.2.12/envs/calc</span><br><span class="line">conda install -c rdkit rdkit</span><br></pre></td></tr></tbody></table></figure>
 

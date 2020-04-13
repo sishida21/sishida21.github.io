@@ -173,29 +173,29 @@
 上述した通り、アカデミア所属の方は無償（条件あり）で使用できるので、興味がありましたら気軽に試してみてください。</p>
 <a id="more"></a>
 
-<h2><span id="chemaxonについて"><font color="olive">ChemAxonについて</font></span></h2><p>ケム・バイオインフォ向けの様々なツールを提供している企業。
+<h2 id="chemaxonについて"><a href="#ChemAxonについて" class="headerlink" title="ChemAxonについて"></a><font color="olive">ChemAxonについて</font></h2><p>ケム・バイオインフォ向けの様々なツールを提供している企業。
 基本的なユーザーはGUIアプリケーションを利用している（と思われる）が、API（Java, .NET）も提供しておりインフォマティシャンも利用しやすくなっている。
 APIドキュメントは揃って入るものの、exampleが充実しているとはいえず、ドキュメントから使い方を察せる能力は必要だと思う。
 基本的には有償のソフトウェア（アカデミックフリー）なので、OSSにはない痒いところに手の届く機能が多数あるなと感じる。</p>
-<h2><span id="academic-licenseの取得方法"><font color="olive">Academic Licenseの取得方法</font></span></h2><p><a href="https://chemaxon.com/academic-license" target="_blank" rel="noopener">ここから</a>ChemAxonのアカウントを作成し、Academic Licenseの申請をします（数日で返事があると思います）
+<h2 id="academic-licenseの取得方法"><a href="#Academic-Licenseの取得方法" class="headerlink" title="Academic Licenseの取得方法"></a><font color="olive">Academic Licenseの取得方法</font></h2><p><a href="https://chemaxon.com/academic-license" target="_blank" rel="noopener">ここから</a>ChemAxonのアカウントを作成し、Academic Licenseの申請をします（数日で返事があると思います）
 下記図の <code>APPLY NOW</code> から申請することができます。</p>
 <img src="/2020/04/09/chemaxon-academia-install/request_license_page.jpg" class title="request_license_page">
 <p>また、申請時には簡単な使用目的を記載する必要があります。</p>
-<h2><span id="install方法for-mac-linux"><font color="olive">Install方法(for Mac, Linux)</font></span></h2><h3><span id="ライセンスのインストール"><font color="olivedrab">ライセンスのインストール</font></span></h3><p>インストール方法に関しては4つの方法が<a href="https://docs.chemaxon.com/display/docs/Installing_to_Servers.html" target="_blank" rel="noopener">公式</a>では挙げられていますが、私はAutomatic installで実施しています。
+<h2 id="install方法for-mac-linux"><a href="#Install方法-for-Mac-Linux" class="headerlink" title="Install方法(for Mac, Linux)"></a><font color="olive">Install方法(for Mac, Linux)</font></h2><h3 id="ライセンスのインストール"><a href="#ライセンスのインストール" class="headerlink" title="ライセンスのインストール"></a><font color="olivedrab">ライセンスのインストール</font></h3><p>インストール方法に関しては4つの方法が<a href="https://docs.chemaxon.com/display/docs/Installing_to_Servers.html" target="_blank" rel="noopener">公式</a>では挙げられていますが、私はAutomatic installで実施しています。
 licenseファイルをダウンロードして、ファイル名を <code>license.cxl</code> とします。そして <code>$HOME/.chemaxon</code> 以下にlicenseファイルを配置すれば完了です。
 （Pathとしては <code>$HOME/.chemaxon/license.cxl</code> となります。これ以外は認証されません）</p>
-<h3><span id="jchem-enginesのインストール"><font color="olivedrab">JChem Enginesのインストール</font></span></h3><p>ChemAxonは様々なアプリケーションを提供していますが、とりあえずJChem Enginesをインストールしておけばそれらが大体一括でインストールされます。
+<h3 id="jchem-enginesのインストール"><a href="#JChem-Enginesのインストール" class="headerlink" title="JChem Enginesのインストール"></a><font color="olivedrab">JChem Enginesのインストール</font></h3><p>ChemAxonは様々なアプリケーションを提供していますが、とりあえずJChem Enginesをインストールしておけばそれらが大体一括でインストールされます。
 この<a href="https://chemaxon.com/products/jchem-engines/download#download-panel" target="_blank" rel="noopener">URL</a>からインストールしたいplatformのインストーラーをダウンロードし、インストールをしてください。</p>
-<h3><span id="インストールの確認"><font color="olivedrab">インストールの確認</font></span></h3><p>インストールされたJChemのバージョン確認</p>
+<h3 id="インストールの確認"><a href="#インストールの確認" class="headerlink" title="インストールの確認"></a><font color="olivedrab">インストールの確認</font></h3><p>インストールされたJChemのバージョン確認</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">versioninfo</span><br></pre></td></tr></tbody></table></figure>
 <p>インストールされたライセンスの状態確認</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">license -l all | less</span><br></pre></td></tr></tbody></table></figure>
 
-<h2><span id="academic-licenseで使用可能なchemaxon-products"><font color="olive">Academic Licenseで使用可能なChemAxon products</font></span></h2><p>見づらいですが、とりあえず列挙しておきます。<br>Marvin Applets, Marvin Beans, Instant JChem, JChem Base, Standardizer, Screen, Reactor, JKlustor, Metabolizer, Markush Search, Protonation Plugin Group, Partitioning Plugin Group, Isomers Plugin Group, Markush Enumeration Plugin, Structure to Name Plugin, Name to Structure, JChem for Excel, Structure Search, IUPAC naming plugin, Web Services Server, Structure Checker, Predictor Plugin, MCES, 3D Screen, Molecular Descriptors, Instant JChem VIZ, ECFP/FCFP, Document to Structure, Structure to Name, NMR Predictor, JChem for Office, Markush Editor, Solubility Plugin, Structural Calculations</p>
-<h2><span id="終わりに"><font color="olive">終わりに</font></span></h2><p>簡易的ではありますが、ChemAxonのインストール方法についてまとめました。
+<h2 id="academic-licenseで使用可能なchemaxon-products"><a href="#Academic-Licenseで使用可能なChemAxon-products" class="headerlink" title="Academic Licenseで使用可能なChemAxon products"></a><font color="olive">Academic Licenseで使用可能なChemAxon products</font></h2><p>見づらいですが、とりあえず列挙しておきます。<br>Marvin Applets, Marvin Beans, Instant JChem, JChem Base, Standardizer, Screen, Reactor, JKlustor, Metabolizer, Markush Search, Protonation Plugin Group, Partitioning Plugin Group, Isomers Plugin Group, Markush Enumeration Plugin, Structure to Name Plugin, Name to Structure, JChem for Excel, Structure Search, IUPAC naming plugin, Web Services Server, Structure Checker, Predictor Plugin, MCES, 3D Screen, Molecular Descriptors, Instant JChem VIZ, ECFP/FCFP, Document to Structure, Structure to Name, NMR Predictor, JChem for Office, Markush Editor, Solubility Plugin, Structural Calculations</p>
+<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a><font color="olive">終わりに</font></h2><p>簡易的ではありますが、ChemAxonのインストール方法についてまとめました。
 全部は紹介しきれないので、普段私が使っているものについて今後まとめていこうと思います。
 インストール方法が端折りすぎててわからない等ありましたら、連絡いただければ追記しようと思います。</p>
-<h2><span id="参照"><font color="olive">参照</font></span></h2><p><a href="https://chemaxon.com/" target="_blank" rel="noopener">ChemAxon</a><br><a href="https://chemaxon.com/academic-license" target="_blank" rel="noopener">ACADEMIC LICENSE CONDITIONS</a></p>
+<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><p><a href="https://chemaxon.com/" target="_blank" rel="noopener">ChemAxon</a><br><a href="https://chemaxon.com/academic-license" target="_blank" rel="noopener">ACADEMIC LICENSE CONDITIONS</a></p>
 </body></html>
         </div>
         
