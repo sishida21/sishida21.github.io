@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/2019/12/12/remote-jupyter-notebook/</loc>
+    
+    <lastmod>2020-05-02T16:00:40.493Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/04/11/recommend-cheminfo-books-and-tutorials/</loc>
     
     <lastmod>2020-05-02T15:36:46.525Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>https://sishida21.github.io/2020/01/27/role-assign-slack-bot/</loc>
     
     <lastmod>2020-01-28T09:31:50.589Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2019/12/12/remote-jupyter-notebook/</loc>
-    
-    <lastmod>2020-01-16T03:50:48.430Z</lastmod>
     
   </url>
   
