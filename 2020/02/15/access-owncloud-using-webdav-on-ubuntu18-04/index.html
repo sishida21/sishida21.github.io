@@ -185,26 +185,26 @@
 <h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a><font color="olive">手順</font></h2><ol>
 <li>davfs2のインストールとマウントポイントの作成</li>
 </ol>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install davfs2</span><br><span class="line">sudo usermod -aG davfs2 &lt;username&gt;  <span class="hljs-comment"># add yourself to the davfs2 group</span></span><br><span class="line">mkdir ~/owncloud</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install davfs2</span><br><span class="line">sudo usermod -aG davfs2 <username>  <span class="hljs-comment"># add yourself to the davfs2 group</span></span><br><span class="line">mkdir ~/owncloud</span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="2">
 <li>davfs2の設定</li>
 </ol>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.davfs2</span><br><span class="line">sudo cp /etc/davfs2/secrets ~/.davfs2/secrets  <span class="hljs-comment"># create personal davfs2 configuration file</span></span><br><span class="line">sudo chown &lt;username&gt;:&lt;username&gt; ~/.davfs2/secrets</span><br><span class="line">chmod 600 ~/.davfs2/secrets</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.davfs2</span><br><span class="line">sudo cp /etc/davfs2/secrets ~/.davfs2/secrets  <span class="hljs-comment"># create personal davfs2 configuration file</span></span><br><span class="line">sudo chown <username>:<username> ~/.davfs2/secrets</span><br><span class="line">chmod 600 ~/.davfs2/secrets</span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="3">
 <li>ownCloudのアカウント情報を <code>~/.davfs2/secrets</code>（davfs2の設定ファイル）に記入</li>
 </ol>
-<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav <username> <password></span><br></pre></td></tr></tbody></table></figure>
 
 <p>example.orgは自分が使っているownCloudサーバのURLに置換する。</p>
 <ol start="4">
 <li><code>/etc/fstab</code> にownCloudのマウントの記入をする</li>
 </ol>
-<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav　/home/&lt;username&gt;/owncloud davfs user,rw,noauto 0 0</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav　/home/<username>/owncloud davfs user,rw,noauto 0 0</span><br></pre></td></tr></tbody></table></figure>
 
 <p><a href="https://wiki.archlinux.jp/index.php/Fstab" target="_blank" rel="noopener"><code>/etc/fstab</code></a> の各フィールドは以下になります。スペースかタブ区切りなので、そこら辺を注意してください。また、今回は自動マウントはして欲しくないのでnoautoで設定しています。</p>
-<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;device&gt; &lt;mountpoint&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;fsck&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight markdown hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><device> <mountpoint> <type> <options> <dump> <fsck></span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="5">
 <li>ownCloudのマウント</li>
