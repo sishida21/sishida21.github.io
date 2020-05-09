@@ -176,9 +176,9 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
       <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
@@ -203,9 +203,9 @@
       <category term="cheminformatics" scheme="https://sishida21.github.io/categories/cheminformatics/"/>
     
     
-      <category term="cheminformatics" scheme="https://sishida21.github.io/tags/cheminformatics/"/>
-    
       <category term="chemaxon" scheme="https://sishida21.github.io/tags/chemaxon/"/>
+    
+      <category term="cheminformatics" scheme="https://sishida21.github.io/tags/cheminformatics/"/>
     
   </entry>
   
@@ -305,9 +305,9 @@
       <category term="macOS" scheme="https://sishida21.github.io/categories/macOS/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="homebrew" scheme="https://sishida21.github.io/tags/homebrew/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
   </entry>
   
@@ -432,9 +432,9 @@
       <category term="programming" scheme="https://sishida21.github.io/categories/programming/"/>
     
     
-      <category term="python" scheme="https://sishida21.github.io/tags/python/"/>
-    
       <category term="setup" scheme="https://sishida21.github.io/tags/setup/"/>
+    
+      <category term="python" scheme="https://sishida21.github.io/tags/python/"/>
     
   </entry>
   
