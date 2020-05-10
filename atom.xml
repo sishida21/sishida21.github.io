@@ -143,11 +143,11 @@
     
       <category term="python" scheme="https://sishida21.github.io/tags/python/"/>
     
-      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
-    
       <category term="java" scheme="https://sishida21.github.io/tags/java/"/>
     
       <category term="shell script" scheme="https://sishida21.github.io/tags/shell-script/"/>
+    
+      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
   </entry>
   
@@ -172,13 +172,13 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
+      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
+    
       <category term="TeachOpenCADD" scheme="https://sishida21.github.io/tags/TeachOpenCADD/"/>
     
       <category term="drug discovery" scheme="https://sishida21.github.io/tags/drug-discovery/"/>
     
       <category term="machine learning" scheme="https://sishida21.github.io/tags/machine-learning/"/>
-    
-      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
   </entry>
   
