@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sishida21.github.io/"/>
-  <updated>2020-05-10T18:05:55.282Z</updated>
+  <updated>2020-05-10T18:13:50.108Z</updated>
   <id>https://sishida21.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://sishida21.github.io/2020/05/11/graph-settings-for-paper-with-matplotlib/"/>
     <id>https://sishida21.github.io/2020/05/11/graph-settings-for-paper-with-matplotlib/</id>
     <published>2020-05-10T17:18:44.000Z</published>
-    <updated>2020-05-10T18:05:55.282Z</updated>
+    <updated>2020-05-10T18:13:50.108Z</updated>
     
-    <content type="html"><![CDATA[<html><head></head><body><p>Matplotlibを使ってグラフを作成したことがある人は誰しもが感じてきたと思いますが、<strong>デフォルトの設定がイケてない</strong>状態です（ラベルの文字が小さく、文字と軸が近すぎてかなり見にくい）。論文のFigureとしてそのまま使うのは流石に厳しいと思いますので、私のMatplotlibのグラフの調整方法についてまとめることにしました。</p><a id="more"></a><p>まずGoogle先生に聞いてみるとちらほらグラフのラベル調整をしている記事が見つかると思います。ですがMatplotlibの書き方は人によって異なる（<code>plt.##</code>で書く人、<code>fig, ax = plt.subplots()</code>で書く人）ので、そのまま使えないことも多いと思います。</p><p>この記事では、個人的にはオブジェクト指向が好みなので、<code>fig, ax = plt.subplots()</code> の書き方で説明します。</p><p>上で言っていることがわからない人で、Matplotlibを理解しつつ書きたいなという人は「<a href="https://qiita.com/skotaro/items/08dc0b8c5704c94eafb9" target="_blank" rel="noopener">早く知っておきたかったmatplotlibの基礎知識、あるいは見た目の調整が捗るArtistの話</a>」を読むとある程度理解できるようになると思います。かなり丁寧にわかりやすく解説されている素晴らしい記事です。</p><h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><hr><ul><li>Python: 3.6.6  </li><li>Matplotlib: 2.2.3  </li><li>Numpy: 1.15.1  </li></ul><p>Pythonの環境構築がまだできてないという方は「<a href="/2019/12/09/pyenv/" title="Python環境構築(pyenv + pyenv-virtualenv)">Python環境構築(pyenv + pyenv-virtualenv)</a>」を参考にしてください。</p><h2 id="調整する部分"><a href="#調整する部分" class="headerlink" title="調整する部分"></a>調整する部分</h2><hr><p><strong>論文に使われる図は基本的にはっきりとした印象を持つ</strong>ことが多いと思います（IF上位のジャーナルは特に）。今回はトップジャーナルに投稿する際に意識した以下の<strong>4つのポイントについての調整法</strong>を紹介します。</p><ul><li><font color="magenta">ラベルサイズを大きくする</font>  </li><li><font color="magenta">軸ラベルを軸から離す</font>  </li><li><font color="magenta">目盛りラベルを軸から離す</font>  </li><li><font color="magenta">枠線（軸）を太くする</font>  </li></ul><h2 id="デフォルト設定のグラフ"><a href="#デフォルト設定のグラフ" class="headerlink" title="デフォルト設定のグラフ"></a>デフォルト設定のグラフ</h2><hr><p>以下にデフォルト設定のサンプルコードとその出力を記載します。</p><h3 id="code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># sample data</span></span><br><span class="line">np.random.seed(<span class="hljs-number">123</span>)</span><br><span class="line">x = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line">y = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># create a figure</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">ax.scatter(x, y)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="hljs-string">"Random-sampled X"</span>)</span><br><span class="line">ax.set_ylabel(<span class="hljs-string">"Random-sampled Y"</span>)</span><br><span class="line">fig.show()</span><br></pre></td></tr></tbody></table></figure><h3 id="output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><img src="/2020/05/11/graph-settings-for-paper-with-matplotlib/scatter_plot_with_default_setting.png" class title="scatter_plot_with_default_setting"><h2 id="調整後のグラフ"><a href="#調整後のグラフ" class="headerlink" title="調整後のグラフ"></a>調整後のグラフ</h2><hr><p>次に設定を調整したサンプルコードとその出力を記載します。デフォルト設定のグラフと見比べてみてください。ほんの少しだけ手を加えてあげるだけで見やすさが段違いに変わると思いませんか？</p><h3 id="code"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># sample data</span></span><br><span class="line">np.random.seed(<span class="hljs-number">123</span>)</span><br><span class="line">x = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line">y = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># create a figure</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">ax.scatter(x, y)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 以下から追加分</span></span><br><span class="line"><span class="hljs-comment"># 枠線（軸）を太くする</span></span><br><span class="line"><span class="hljs-keyword">for</span> axis <span class="hljs-keyword">in</span> [<span class="hljs-string">'top'</span>,<span class="hljs-string">'bottom'</span>,<span class="hljs-string">'left'</span>,<span class="hljs-string">'right'</span>]:</span><br><span class="line">    ax.spines[axis].set_linewidth(<span class="hljs-number">4</span>)</span><br><span class="line"></span><br><span class="line">ax.xaxis.set_tick_params(direction=<span class="hljs-string">"out"</span>, labelsize=<span class="hljs-number">20</span>, width=<span class="hljs-number">3</span>, pad=<span class="hljs-number">10</span>)  <span class="hljs-comment"># x軸の目盛りの調整</span></span><br><span class="line">ax.yaxis.set_tick_params(direction=<span class="hljs-string">"out"</span>, labelsize=<span class="hljs-number">20</span>, width=<span class="hljs-number">3</span>, pad=<span class="hljs-number">10</span>)  <span class="hljs-comment"># y軸の目盛りの調整</span></span><br><span class="line">ax.set_xlabel(<span class="hljs-string">"Random-sampled X"</span>, fontsize=<span class="hljs-number">30</span>, labelpad=<span class="hljs-number">20</span>, weight=<span class="hljs-string">'bold'</span>)  <span class="hljs-comment"># x軸のラベルの調整</span></span><br><span class="line">ax.set_ylabel(<span class="hljs-string">"Random-sampled Y"</span>, fontsize=<span class="hljs-number">30</span>, labelpad=<span class="hljs-number">20</span>, weight=<span class="hljs-string">'bold'</span>)  <span class="hljs-comment"># y軸のラベルの調整</span></span><br><span class="line">fig.show()</span><br></pre></td></tr></tbody></table></figure><h3 id="output"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><img src="/2020/05/11/graph-settings-for-paper-with-matplotlib/scatter_plot_with_modified_setting.png" class title="scatter_plot_with_modified_setting"><h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><hr><p>以上、簡単ですがグラフのパラメータの設定方法について紹介しました。</p><p>Matplotlibは様々なパラメータが存在していて一筋縄では求めてるパラメータに行き着かないのですが、やりたいことはほぼできるはずなので、諦めずに<a href="https://matplotlib.org/api/index.html" target="_blank" rel="noopener">Matplotlib API</a>から探してみてください。またGoogle先生に聞くと、そんな複雑なことする必要があるのかなあと疑問に思うことが多々ありますが、きちんと調べれば簡単にできることがほとんどだと思いますので時間が許す範囲で調べるって感じですね。</p><p>オブジェクト指向の書き方をしている人は、<font color="magenta">追記分のコードをコピペするだけで簡単にグラフの調整ができる</font>のでぜひお使いください。</p><p>今回説明がなかったものでも、もし紹介して欲しい処理がありましたらコメントしていただければ可能な限り対応しようと思います。</p><p>それでは。</p><!-- 参照 --></body></html>]]></content>
+    <content type="html"><![CDATA[<html><head></head><body><p>Matplotlibを使ってグラフを作成したことがある人は誰しもが感じてきたと思いますが、<strong>デフォルトの設定がイケてない</strong>状態です（ラベルの文字が小さく、文字と軸が近すぎてかなり見にくい）。論文のFigureとしてそのまま使うのは流石に厳しいと思いますので、私のMatplotlibのグラフの調整方法についてまとめることにしました。</p><a id="more"></a><p>まずGoogle先生に聞いてみるとちらほらグラフのラベル調整をしている記事が見つかると思います。ですがMatplotlibの書き方は人によって異なる（<code>plt.##</code>で書く人、<code>fig, ax = plt.subplots()</code>で書く人）ので、そのまま使えないことも多いと思います。</p><p>この記事では、個人的にはオブジェクト指向が好みなので、<code>fig, ax = plt.subplots()</code> の書き方で説明します。</p><p>上で言っていることがわからない人で、Matplotlibを理解しつつ書きたいなという人は「<a href="https://qiita.com/skotaro/items/08dc0b8c5704c94eafb9" target="_blank" rel="noopener">早く知っておきたかったmatplotlibの基礎知識、あるいは見た目の調整が捗るArtistの話</a>」を読むとある程度理解できるようになると思います。かなり丁寧にわかりやすく解説されている素晴らしい記事です。</p><h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><hr><ul><li>Python: 3.6.6  </li><li>Matplotlib: 2.2.3  </li><li>Numpy: 1.15.1  </li></ul><p>Pythonの環境構築がまだできてないという方は「<a href="/2019/12/09/pyenv/" title="Python環境構築(pyenv + pyenv-virtualenv)">Python環境構築(pyenv + pyenv-virtualenv)</a>」を参考にしてください。</p><h2 id="調整する部分"><a href="#調整する部分" class="headerlink" title="調整する部分"></a>調整する部分</h2><hr><p><strong>論文に使われる図は基本的にはっきりとした印象を持つ</strong>ことが多いと思います（IF上位のジャーナルは特に）。今回はトップジャーナルに投稿する際に意識した以下の<strong>4つのポイントについての調整法</strong>を紹介します。</p><ul><li><font color="magenta">ラベルサイズを大きくする</font>  </li><li><font color="magenta">軸ラベルを軸から離す</font>  </li><li><font color="magenta">目盛りラベルを軸から離す</font>  </li><li><font color="magenta">枠線（軸）を太くする</font>  </li></ul><h2 id="デフォルト設定のグラフ"><a href="#デフォルト設定のグラフ" class="headerlink" title="デフォルト設定のグラフ"></a>デフォルト設定のグラフ</h2><hr><p>以下にデフォルト設定のサンプルコードとその出力を記載します。</p><h3 id="code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># sample data</span></span><br><span class="line">np.random.seed(<span class="hljs-number">123</span>)</span><br><span class="line">x = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line">y = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># create a figure</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">ax.scatter(x, y)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="hljs-string">"Random-sampled X"</span>)</span><br><span class="line">ax.set_ylabel(<span class="hljs-string">"Random-sampled Y"</span>)</span><br><span class="line">fig.show()</span><br></pre></td></tr></tbody></table></figure><h3 id="output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><img src="/2020/05/11/graph-settings-for-paper-with-matplotlib/scatter_plot_with_default_settings.png" class title="scatter_plot_with_default_settings"><h2 id="調整後のグラフ"><a href="#調整後のグラフ" class="headerlink" title="調整後のグラフ"></a>調整後のグラフ</h2><hr><p>次に設定を調整したサンプルコードとその出力を記載します。デフォルト設定のグラフと見比べてみてください。ほんの少しだけ手を加えてあげるだけで見やすさが段違いに変わると思いませんか？</p><h3 id="code"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># sample data</span></span><br><span class="line">np.random.seed(<span class="hljs-number">123</span>)</span><br><span class="line">x = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line">y = np.random.randn(<span class="hljs-number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># create a figure</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">ax.scatter(x, y)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 以下から追加分</span></span><br><span class="line"><span class="hljs-comment"># 枠線（軸）を太くする</span></span><br><span class="line"><span class="hljs-keyword">for</span> axis <span class="hljs-keyword">in</span> [<span class="hljs-string">'top'</span>,<span class="hljs-string">'bottom'</span>,<span class="hljs-string">'left'</span>,<span class="hljs-string">'right'</span>]:</span><br><span class="line">    ax.spines[axis].set_linewidth(<span class="hljs-number">4</span>)</span><br><span class="line"></span><br><span class="line">ax.xaxis.set_tick_params(direction=<span class="hljs-string">"out"</span>, labelsize=<span class="hljs-number">20</span>, width=<span class="hljs-number">3</span>, pad=<span class="hljs-number">10</span>)  <span class="hljs-comment"># x軸の目盛りの調整</span></span><br><span class="line">ax.yaxis.set_tick_params(direction=<span class="hljs-string">"out"</span>, labelsize=<span class="hljs-number">20</span>, width=<span class="hljs-number">3</span>, pad=<span class="hljs-number">10</span>)  <span class="hljs-comment"># y軸の目盛りの調整</span></span><br><span class="line">ax.set_xlabel(<span class="hljs-string">"Random-sampled X"</span>, fontsize=<span class="hljs-number">30</span>, labelpad=<span class="hljs-number">20</span>, weight=<span class="hljs-string">'bold'</span>)  <span class="hljs-comment"># x軸のラベルの調整</span></span><br><span class="line">ax.set_ylabel(<span class="hljs-string">"Random-sampled Y"</span>, fontsize=<span class="hljs-number">30</span>, labelpad=<span class="hljs-number">20</span>, weight=<span class="hljs-string">'bold'</span>)  <span class="hljs-comment"># y軸のラベルの調整</span></span><br><span class="line">fig.show()</span><br></pre></td></tr></tbody></table></figure><h3 id="output"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><img src="/2020/05/11/graph-settings-for-paper-with-matplotlib/scatter_plot_with_modified_settings.png" class title="scatter_plot_with_modified_settings"><h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><hr><p>以上、簡単ですがグラフのパラメータの設定方法について紹介しました。</p><p>Matplotlibは様々なパラメータが存在していて一筋縄では求めてるパラメータに行き着かないのですが、やりたいことはほぼできるはずなので、諦めずに<a href="https://matplotlib.org/api/index.html" target="_blank" rel="noopener">Matplotlib API</a>から探してみてください。またGoogle先生に聞くと、そんな複雑なことする必要があるのかなあと疑問に思うことが多々ありますが、きちんと調べれば簡単にできることがほとんどだと思いますので時間が許す範囲で調べるって感じですね。</p><p>オブジェクト指向の書き方をしている人は、<font color="magenta">追記分のコードをコピペするだけで簡単にグラフの調整ができる</font>のでぜひお使いください。</p><p>今回説明がなかったものでも、もし紹介して欲しい処理がありましたらコメントしていただければ可能な限り対応しようと思います。</p><p>それでは。</p><!-- 参照 --></body></html>]]></content>
     
     <summary type="html">
     
@@ -85,9 +85,9 @@
       <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
     
     
-      <category term="iPad" scheme="https://sishida21.github.io/tags/iPad/"/>
-    
       <category term="Magic_Keyboard" scheme="https://sishida21.github.io/tags/Magic-Keyboard/"/>
+    
+      <category term="iPad" scheme="https://sishida21.github.io/tags/iPad/"/>
     
   </entry>
   
@@ -143,11 +143,11 @@
     
       <category term="python" scheme="https://sishida21.github.io/tags/python/"/>
     
+      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
+    
       <category term="java" scheme="https://sishida21.github.io/tags/java/"/>
     
       <category term="shell script" scheme="https://sishida21.github.io/tags/shell-script/"/>
-    
-      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
   </entry>
   
@@ -172,13 +172,13 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
-    
       <category term="TeachOpenCADD" scheme="https://sishida21.github.io/tags/TeachOpenCADD/"/>
     
       <category term="drug discovery" scheme="https://sishida21.github.io/tags/drug-discovery/"/>
     
       <category term="machine learning" scheme="https://sishida21.github.io/tags/machine-learning/"/>
+    
+      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
   </entry>
   
@@ -201,9 +201,9 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
       <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
@@ -228,9 +228,9 @@
       <category term="cheminformatics" scheme="https://sishida21.github.io/categories/cheminformatics/"/>
     
     
-      <category term="cheminformatics" scheme="https://sishida21.github.io/tags/cheminformatics/"/>
-    
       <category term="chemaxon" scheme="https://sishida21.github.io/tags/chemaxon/"/>
+    
+      <category term="cheminformatics" scheme="https://sishida21.github.io/tags/cheminformatics/"/>
     
   </entry>
   
@@ -330,9 +330,9 @@
       <category term="macOS" scheme="https://sishida21.github.io/categories/macOS/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="homebrew" scheme="https://sishida21.github.io/tags/homebrew/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
   </entry>
   
@@ -352,9 +352,9 @@
     </summary>
     
     
-      <category term="programming" scheme="https://sishida21.github.io/categories/programming/"/>
-    
       <category term="cheminformatics" scheme="https://sishida21.github.io/categories/cheminformatics/"/>
+    
+      <category term="programming" scheme="https://sishida21.github.io/categories/programming/"/>
     
     
       <category term="cheminformatics" scheme="https://sishida21.github.io/tags/cheminformatics/"/>
@@ -457,9 +457,9 @@
       <category term="programming" scheme="https://sishida21.github.io/categories/programming/"/>
     
     
-      <category term="python" scheme="https://sishida21.github.io/tags/python/"/>
-    
       <category term="setup" scheme="https://sishida21.github.io/tags/setup/"/>
+    
+      <category term="python" scheme="https://sishida21.github.io/tags/python/"/>
     
   </entry>
   
