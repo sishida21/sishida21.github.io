@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sishida21.github.io/images/og_image.png">
 <meta property="article:published_time" content="2019-12-12T11:45:25.000Z">
-<meta property="article:modified_time" content="2020-05-13T06:51:03.026Z">
+<meta property="article:modified_time" content="2020-05-13T07:00:59.464Z">
 <meta property="article:author" content="Shoichi Ishida">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="jupyter_notebook">
@@ -160,7 +160,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 1123 words)
+                    8 minutes read (About 1141 words)
                 </span>
                 
                 
@@ -196,7 +196,7 @@
 <p>c.NotebookApp.ip = ‘localhost’<br>c.NotebookApp.open_browser = False<br>c.NotebookApp.port = 8889<br>c.NotebookApp.token = u’’  </p>
 </blockquote>
 </li>
-<li><p>ノートブックを開くためのパスワードを設定する(セキュリティが気になる人・よくわかってない人は設定推奨)<br>以下のコマンドでパスワードを設定し、ハッシュ化されたパスワードを取得する</p>
+<li><p>ノートブックを開くためのパスワードを設定する<strong>(セキュリティが気になる人・よくわかってない人は設定推奨)</strong><br>以下のコマンドでパスワードを設定し、ハッシュ化されたパスワードを取得する</p>
 <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter-notebook password</span><br></pre></td></tr></tbody></table></figure>
 <p><code>$HOME/.jupyter/jupyter_notebook_config.json</code> というファイルが生成されるので、そのファイルを開いて以下のハッシュ化されたパスワード（#の部分）をコピーする（#の部分はsha1:~のようになってるはずです）。</p>
 <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  "NotebookApp": {</span><br><span class="line">    "password": "################################"</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
@@ -236,7 +236,8 @@ sshの引数は適宜追加して下さい。</p>
 
 <ul>
 <li><a href="https://blog.amedama.jp/entry/jupyter-nb-ssh-port-forwarding" target="_blank" rel="noopener">リモートサーバの Jupyter Notebook を SSH Port Forwarding 経由で使う</a>  </li>
-<li><a href="https://jupyter-notebook.readthedocs.io/en/stable/config.html" target="_blank" rel="noopener">Config file and command line options (Jupyter notebook document)</a></li>
+<li><a href="https://jupyter-notebook.readthedocs.io/en/stable/config.html" target="_blank" rel="noopener">Config file and command line options (Jupyter notebook document)</a>  </li>
+<li><a href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server" target="_blank" rel="noopener">Running a notebook server</a></li>
 </ul>
 </body></html>
         </div>
