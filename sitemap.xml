@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/2020/04/27/recommend-books-programming/</loc>
+    
+    <lastmod>2020-05-17T10:52:13.646Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/04/11/recommend-cheminfo-books-and-tutorials/</loc>
+    
+    <lastmod>2020-05-17T10:41:07.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/04/10/recommend-books-infrastructure/</loc>
+    
+    <lastmod>2020-05-17T10:30:43.377Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/05/17/recommend-qc-books-and-tutorials/</loc>
+    
+    <lastmod>2020-05-17T10:18:18.469Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/about/index.html</loc>
     
     <lastmod>2020-05-14T13:39:56.571Z</lastmod>
@@ -19,13 +47,6 @@
     <loc>https://sishida21.github.io/2020/05/11/graph-settings-for-paper-with-matplotlib/</loc>
     
     <lastmod>2020-05-11T00:41:42.393Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/04/11/recommend-cheminfo-books-and-tutorials/</loc>
-    
-    <lastmod>2020-05-10T14:11:24.000Z</lastmod>
     
   </url>
   
@@ -54,20 +75,6 @@
     <loc>https://sishida21.github.io/2020/01/27/role-assign-slack-bot/</loc>
     
     <lastmod>2020-05-02T16:09:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/04/10/recommend-books-infrastructure/</loc>
-    
-    <lastmod>2020-05-02T15:33:58.705Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/04/27/recommend-books-programming/</loc>
-    
-    <lastmod>2020-05-02T15:24:51.431Z</lastmod>
     
   </url>
   
