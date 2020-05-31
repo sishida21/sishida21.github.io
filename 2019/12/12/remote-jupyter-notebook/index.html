@@ -18,7 +18,7 @@
 
 <ol>
 <li><p>jupyter notebookのconfigファイルを生成する  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --<span class="keyword">generate</span>-<span class="keyword">config</span></span><br></pre></td></tr></table></figure>
 <p>これで以下の場所にconfigファイルができる。<br><code>$HOME/.jupyter/jupyter_notebook_config.py</code>  </p>
 </li>
 <li><p>生成したconfigファイルの書き換え<br><code>c.NotebookApp.~</code>の項目が記載されている行を探し、アンコメントして以下の通り書き換える。</p>
@@ -27,9 +27,9 @@
 </blockquote>
 </li>
 <li><p>ノートブックを開くためのパスワードを設定する<strong>(セキュリティが気になる人・よくわかってない人は設定推奨)</strong><br>以下のコマンドでパスワードを設定し、ハッシュ化されたパスワードを取得する</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter-notebook password</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">jupyter-notebook password</span></span><br></pre></td></tr></table></figure>
 <p><code>$HOME/.jupyter/jupyter_notebook_config.json</code> というファイルが生成されるので、そのファイルを開いて以下のハッシュ化されたパスワード（#の部分）をコピーする（#の部分はsha1:~のようになってるはずです）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;NotebookApp&quot;: &#123;</span><br><span class="line">    &quot;password&quot;: &quot;#####&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"NotebookApp"</span>: &#123;</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"#####"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>「2. 生成したconfigファイルの書き換え」と同様にして以下プロパティの行をアンコメントした上で先ほどコピーしたパスワードを記載する。</p>
 <blockquote>
 <p>c.NotebookApp.password = ‘#####’</p>
@@ -43,7 +43,7 @@
 <li><p>いつも通りsshする際に、ローカルフォワーディングする引数をつける。
 例ではlocalhostのポート8889番をリモートサーバーの8889番につないでいる。
 sshの引数は適宜追加して下さい。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 8889:localhost:8889 example.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-L</span> 8889<span class="selector-pseudo">:localhost</span><span class="selector-pseudo">:8889</span> <span class="selector-tag">example</span><span class="selector-class">.com</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>このセッションを維持している状態で、jupyterを起動する。  </p>
 </li>
@@ -85,11 +85,11 @@ sshの引数は適宜追加して下さい。</p>
             },
             article: {
                 highlight: {
-                    clipboard: false,
+                    clipboard: true,
                     fold: 'unfolded'
                 }
             }
-        };</script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
             if (typeof $.fn.lightGallery === 'function') {
                 $('.article').lightGallery({ selector: '.gallery-item' });
             }
