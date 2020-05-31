@@ -265,9 +265,9 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
       <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
@@ -416,9 +416,9 @@
     </summary>
     
     
-      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
-    
       <category term="Programming" scheme="https://sishida21.github.io/categories/Programming/"/>
+    
+      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
     
       <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
     
