@@ -141,9 +141,9 @@
       <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
     
     
-      <category term="iPad" scheme="https://sishida21.github.io/tags/iPad/"/>
-    
       <category term="Magic_Keyboard" scheme="https://sishida21.github.io/tags/Magic-Keyboard/"/>
+    
+      <category term="iPad" scheme="https://sishida21.github.io/tags/iPad/"/>
     
   </entry>
   
@@ -408,9 +408,9 @@
     </summary>
     
     
-      <category term="programming" scheme="https://sishida21.github.io/categories/programming/"/>
-    
       <category term="cheminformatics" scheme="https://sishida21.github.io/categories/cheminformatics/"/>
+    
+      <category term="programming" scheme="https://sishida21.github.io/categories/programming/"/>
     
     
       <category term="cheminformatics" scheme="https://sishida21.github.io/tags/cheminformatics/"/>
