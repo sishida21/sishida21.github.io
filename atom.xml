@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sishida21.github.io/"/>
-  <updated>2020-05-31T09:27:44.591Z</updated>
+  <updated>2020-06-01T13:35:09.691Z</updated>
   <id>https://sishida21.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexoで作成したウェブサイトのページで404エラーが出たときの対処法</title>
+    <link href="https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/"/>
+    <id>https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/</id>
+    <published>2020-06-01T13:35:09.000Z</published>
+    <updated>2020-06-01T13:35:09.691Z</updated>
+    
+    <content type="html"><![CDATA[<p>当サイトはHexoを使って作成しているのですが、ウェブサイトの構成やカテゴリー・タグの編集、ページ名の修正等をしていると404エラーに遭遇するケースがありました。そこでこの記事では、私のケースにおける404エラーが出た際の対処法について備忘録的にまとめていきます。</p><a id="more"></a><h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><hr><ul><li>Hexo: 4.2.1</li><li>hexo-deployer-git: 2.1.0</li><li>GitHub Pages (Host)</li></ul><h2 id="404エラーが出た原因"><a href="#404エラーが出た原因" class="headerlink" title="404エラーが出た原因"></a>404エラーが出た原因</h2><hr><p>私の場合は、ローカルで作業をした後<code>hexo-deployer-git</code>モジュールを使ってGitHubへとアップロードする運用にしています。ここでお気づきの方はいるかもしれませんが、<font color="darkblue">404エラーはGitがデフォルトでは大文字・小文字を区別しないことに起因</font>していました。</p><p>私の場合は例えば、</p><ol><li>初めにContactというページを作成  </li><li>後にcontactとディレクトリ名を変更（これでデプロイすると404エラーになる）  </li></ol><p>というような感じです（他にはCategories/カテゴリーについても同様の原因でありました）。</p><p>以降では<code>hexo-deployer-git</code>がどのようにGit管理をしているかについて簡単に触れつつ、上記の例についての対処法について記載していきます。</p><h2 id="対処法"><a href="#対処法" class="headerlink" title="対処法"></a>対処法</h2><hr><p>まず初めに全体の流れについてまとめておきます。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git/</span><br><span class="line">git config core.ignorecase <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># もしContact, contactが共存してしまっている場合===</span></span><br><span class="line">git rm -rf Contact</span><br><span class="line">git commit -m <span class="string">"delete Contact"</span></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># ====</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ../</span><br><span class="line">hexo clean</span><br><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure><p>以上がざっとした流れになります。</p><p>どういうケースかによって微妙に操作が異なってくるかと思いますが、基本的な流れをこれで把握しておけば対処できるかと思います。それではそれぞれの操作の意味について解説していきます。</p><h3 id="hexo-deployer-gitについて"><a href="#hexo-deployer-gitについて" class="headerlink" title="hexo-deployer-gitについて"></a>hexo-deployer-gitについて</h3><p><code>hexo-deployer-git</code>は一体どこでGit管理をしているのかというと、Hexoのホームディレクトリ直下の<code>.deploy_git/</code>ディレクトリがそれにあたります。GitHubに上がるファイルも全てここに存在していますので、<strong>ここで適切な対処をすればデプロイしたウェブサイトにも修正を反映させることができます</strong>。</p><p>もちろん<code>.deploy_git/</code>は<strong>Git管理されている</strong>ので、<font color="darkblue">gitコマンド以外でのファイルの変更・修正をするとバグります</font>のでご注意ください。</p><h3 id="gitの大文字小文字区別について"><a href="#Gitの大文字・小文字区別について" class="headerlink" title="Gitの大文字・小文字区別について"></a>Gitの大文字・小文字区別について</h3><p>Gitはデフォルトでは大文字・小文字の区別を<strong>しません</strong>。ですのでそれを意識せずにURLの大文字・小文字を修正してしまうと404エラー（File Not Found）に繋がることになります。</p><p>このような事態を防ぐために、Gitで大文字・小文字を区別するように設定を以下の通り変更します。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config core.ignorecase <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>この設定しておけば今後、大文字・小文字を区別してGit管理してくれるようになります。ですが、今までやってしまったことに関してはマニュアルで修正していく必要があるのでそれをやってしまいましょう。</p><h3 id="git管理から外したい消したいファイル"><a href="#Git管理から外したい・消したいファイル" class="headerlink" title="Git管理から外したい・消したいファイル"></a>Git管理から外したい・消したいファイル</h3><p>以上までの設定を終えていれば、今後はGit起因の404エラーには遭遇しにくくなると思います。なのでこれ以前までの負の産物を<strong>Gitコマンドを使って</strong>きれいに精算してしまいましょう。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm -rf Contact</span><br><span class="line">git commit -m <span class="string">"delete Contact"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure><h3 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h3><p>ここまでやれば、後は一度Hexoで生成してたものをきれいにしてデプロイしなおせば終わりです。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../</span><br><span class="line">hexo clean</span><br><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure><h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><hr><p>以上が私のケースにおけるHexoでの404エラーの対処法になります。今回はページについての対処法を例に挙げて解説しましたが、他に私が遭遇したものとしてはCategoriesの大文字・小文字の変更でも同様の404エラーが起きていて同じように対処しました。</p><p>日本でHexoユーザーがどれくらいいるのかはわかりませんが、もし同じようなエラーに遭遇した人の助けになればと思いまとめておきました。</p><p>それでは。</p>]]></content>
+    
+    <summary type="html">
+    
+      Hexoで作成したウェブサイトのページで404エラーが出たときの対処法
+    
+    </summary>
+    
+    
+      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
+    
+    
+      <category term="Hexo" scheme="https://sishida21.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>MatplotlibとNetworkXを使った探索木の可視化</title>
@@ -265,9 +288,9 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
       <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
@@ -416,9 +439,9 @@
     </summary>
     
     
-      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
-    
       <category term="Programming" scheme="https://sishida21.github.io/categories/Programming/"/>
+    
+      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
     
       <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
     
@@ -524,25 +547,6 @@
     
     
       <category term="setup" scheme="https://sishida21.github.io/tags/setup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>はじめに</title>
-    <link href="https://sishida21.github.io/2019/12/09/intro/"/>
-    <id>https://sishida21.github.io/2019/12/09/intro/</id>
-    <published>2019-12-09T06:11:57.000Z</published>
-    <updated>2019-12-19T12:45:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>ケムインフォを中心に創薬関連の研究している学生です。<br>このブログには備忘録的に以下に関連するトピックを不定期にまとめていくつもりです。</p><ul><li>Chemoinformatics</li><li>Machine Learning</li><li>Programming</li><li>Medicine</li><li>etc.</li></ul><p>私については<a href="/about">こちら</a>を参照ください。</p>]]></content>
-    
-    <summary type="html">
-    
-      自己紹介
-    
-    </summary>
-    
-    
     
   </entry>
   

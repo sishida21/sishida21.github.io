@@ -1,49 +1,60 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>rdMolDraw2Dを用いて単色の分子を描画する - sishida21.github.io</title><meta description="rdMolDraw2Dを用いて単色の分子を描画する"><meta property="og:type" content="blog"><meta property="og:title" content="rdMolDraw2Dを用いて単色の分子を描画する"><meta property="og:url" content="https://sishida21.github.io/2020/01/07/rdkit-draw-mol/"><meta property="og:site_name" content="sishida21.github.io"><meta property="og:description" content="rdMolDraw2Dを用いて単色の分子を描画する"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://sishida21.github.io/2020/01/07/rdkit-draw-mol/mol.svg"><meta property="og:image" content="https://sishida21.github.io/2020/01/07/rdkit-draw-mol/mol_color.svg"><meta property="article:published_time" content="2020-01-07T08:07:20.000Z"><meta property="article:modified_time" content="2020-05-31T09:28:12.671Z"><meta property="article:author" content="Shoichi Ishida"><meta property="article:tag" content="rdkit"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/2020/01/07/rdkit-draw-mol/mol.svg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sishida21.github.io/2020/01/07/rdkit-draw-mol/"},"headline":"sishida21.github.io","image":[],"datePublished":"2020-01-07T08:07:20.000Z","dateModified":"2020-05-31T09:28:12.671Z","author":{"@type":"Person","name":"Shoichi Ishida"},"description":"rdMolDraw2Dを用いて単色の分子を描画する"}</script><link rel="canonical" href="https://sishida21.github.io/2020/01/07/rdkit-draw-mol/"><link rel="alternative" href="/atom.xml" title="sishida21.github.io" type="application/atom+xml"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-154227847-1" async></script><script>window.dataLayer = window.dataLayer || [];
+<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Hexoで作成したウェブサイトのページで404エラーが出たときの対処法 - sishida21.github.io</title><meta description="Hexoで作成したウェブサイトのページで404エラーが出たときの対処法"><meta property="og:type" content="blog"><meta property="og:title" content="Hexoで作成したウェブサイトのページで404エラーが出たときの対処法"><meta property="og:url" content="https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/"><meta property="og:site_name" content="sishida21.github.io"><meta property="og:description" content="Hexoで作成したウェブサイトのページで404エラーが出たときの対処法"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://sishida21.github.io/img/og_image.png"><meta property="article:published_time" content="2020-06-01T13:35:09.000Z"><meta property="article:modified_time" content="2020-06-01T13:35:09.691Z"><meta property="article:author" content="Shoichi Ishida"><meta property="article:tag" content="Hexo"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/"},"headline":"sishida21.github.io","image":["https://sishida21.github.io/img/og_image.png"],"datePublished":"2020-06-01T13:35:09.000Z","dateModified":"2020-06-01T13:35:09.691Z","author":{"@type":"Person","name":"Shoichi Ishida"},"description":"Hexoで作成したウェブサイトのページで404エラーが出たときの対処法"}</script><link rel="canonical" href="https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/"><link rel="alternative" href="/atom.xml" title="sishida21.github.io" type="application/atom+xml"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-154227847-1" async></script><script>window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
-        gtag('config', 'UA-154227847-1');</script><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="ca-pub-7927479531262628" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/benzene.svg" alt="sishida21.github.io" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a><a class="navbar-item" href="/contact">Contact</a><a class="navbar-item" href="/privacy_policy">Privacy Policy</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-01-07T08:07:20.000Z" title="2020-01-07T08:07:20.000Z">2020-01-07</time><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Cheminformatics/">Cheminformatics</a><span> / </span><a class="link-muted" href="/categories/Programming/Python/">Python</a></span><span class="level-item">4 minutes read (About 610 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">rdMolDraw2Dを用いて単色の分子を描画する</h1><div class="content"><p>本記事では、RDKitを使って原子が色分けされていない単色の分子を描画する方法について記載します。
-いろいろな記事で分子の描画方法については記載があったのですが、原子の色を調整する方法は載っていなかった&amp;やり方にたどり着くまで試行錯誤が必要だったのでまとめることにしました。
-処理としては1行で済むので簡単です。</p>
+        gtag('config', 'UA-154227847-1');</script><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="ca-pub-7927479531262628" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/benzene.svg" alt="sishida21.github.io" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a><a class="navbar-item" href="/contact">Contact</a><a class="navbar-item" href="/privacy_policy">Privacy Policy</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-01T13:35:09.000Z" title="2020-06-01T13:35:09.000Z">2020-06-01</time><span class="level-item"><a class="link-muted" href="/categories/Lifehack/">Lifehack</a></span><span class="level-item">9 minutes read (About 1366 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Hexoで作成したウェブサイトのページで404エラーが出たときの対処法</h1><div class="content"><p>当サイトはHexoを使って作成しているのですが、ウェブサイトの構成やカテゴリー・タグの編集、ページ名の修正等をしていると404エラーに遭遇するケースがありました。
+そこでこの記事では、私のケースにおける404エラーが出た際の対処法について備忘録的にまとめていきます。</p>
 <a id="more"></a>
 
-<p>rdMolDraw2Dを使った基本的な分子の描画方法については、<a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2">こちらのブログ</a>に丁寧にまとめられていますのでそちらを参照ください。</p>
-<h2 id="環境ライブラリ"><a href="#環境・ライブラリ" class="headerlink" title="環境・ライブラリ"></a><font color="olive">環境・ライブラリ</font></h2><hr>
-
+<h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><hr>
 <ul>
-<li>python: 3.6  </li>
-<li>rdkit: 2019.09.2  </li>
-<li>ipython: 7.1.1  </li>
+<li>Hexo: 4.2.1</li>
+<li>hexo-deployer-git: 2.1.0</li>
+<li>GitHub Pages (Host)</li>
 </ul>
-<h2 id="スクリプト"><a href="#スクリプト" class="headerlink" title="スクリプト"></a><font color="olive">スクリプト</font></h2><hr>
-
-<p>以下のスクリプトを実行すると黒色単色で分子を描画することができます。</p>
-<script src="https://gist.github.com/sishida21/cc724610bdea11aa8f79746b9ebed8f3.js"></script>
-
-<p>このスクリプトの出力ファイルの中身は以下の通りです。</p>
-<img src="/2020/01/07/rdkit-draw-mol/mol.svg" class title="penicillin">
-
-<h2 id="解説"><a href="#解説" class="headerlink" title="解説"></a><font color="olive">解説</font></h2><hr>
-
-<p>分子の色を調整しているのは12行目の <code>drawer.drawOptions().updateAtomPalette({k: (0, 0, 0) for k in DrawingOptions.elemDict.keys()})</code> になります。</p>
+<h2 id="404エラーが出た原因"><a href="#404エラーが出た原因" class="headerlink" title="404エラーが出た原因"></a>404エラーが出た原因</h2><hr>
+<p>私の場合は、ローカルで作業をした後<code>hexo-deployer-git</code>モジュールを使ってGitHubへとアップロードする運用にしています。
+ここでお気づきの方はいるかもしれませんが、<font color="darkblue">404エラーはGitがデフォルトでは大文字・小文字を区別しないことに起因</font>していました。</p>
+<p>私の場合は例えば、</p>
 <ol>
-<li><code>DrawingOptions.elemDict.keys()</code> で分子中の各原子のkeyを取得  </li>
-<li>取得したkeyに <code>(0, 0, 0)</code> を割り当てる。（これはRGB表記の黒を意味しています）  </li>
-<li>作成したdictを <code>drawer.drawOptions().updateAtomPalette()</code> を使ってatom paletteの更新  </li>
+<li>初めにContactというページを作成  </li>
+<li>後にcontactとディレクトリ名を変更（これでデプロイすると404エラーになる）  </li>
 </ol>
-<p>以上の処理で分子の色を調整しています。RGB表記の値を変えれば望みの色に分子を統一することが可能です。</p>
-<p>12行目をコメントアウトすると、以下の通りヘテロ原子に色がついた分子の描画ができます。</p>
-<img src="/2020/01/07/rdkit-draw-mol/mol_color.svg" class title="penicillin">
+<p>というような感じです（他にはCategories/カテゴリーについても同様の原因でありました）。</p>
+<p>以降では<code>hexo-deployer-git</code>がどのようにGit管理をしているかについて簡単に触れつつ、上記の例についての対処法について記載していきます。</p>
+<h2 id="対処法"><a href="#対処法" class="headerlink" title="対処法"></a>対処法</h2><hr>
+<p>まず初めに全体の流れについてまとめておきます。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git/</span><br><span class="line">git config core.ignorecase <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># もしContact, contactが共存してしまっている場合===</span></span><br><span class="line">git rm -rf Contact</span><br><span class="line">git commit -m <span class="string">"delete Contact"</span></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># ====</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ../</span><br><span class="line">hexo clean</span><br><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure>
 
-<p>他にも色々とdrawerのオプションは調整できますが、それは<a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D">RDkitのAPIドキュメント</a>を参照してください。</p>
-<p>以上で終わります。</p>
-<h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a><font color="olive">参照</font></h2><hr>
+<p>以上がざっとした流れになります。</p>
+<p>どういうケースかによって微妙に操作が異なってくるかと思いますが、基本的な流れをこれで把握しておけば対処できるかと思います。
+それではそれぞれの操作の意味について解説していきます。</p>
+<h3 id="hexo-deployer-gitについて"><a href="#hexo-deployer-gitについて" class="headerlink" title="hexo-deployer-gitについて"></a>hexo-deployer-gitについて</h3><p><code>hexo-deployer-git</code>は一体どこでGit管理をしているのかというと、Hexoのホームディレクトリ直下の<code>.deploy_git/</code>ディレクトリがそれにあたります。
+GitHubに上がるファイルも全てここに存在していますので、<strong>ここで適切な対処をすればデプロイしたウェブサイトにも修正を反映させることができます</strong>。</p>
+<p>もちろん<code>.deploy_git/</code>は<strong>Git管理されている</strong>ので、<font color="darkblue">gitコマンド以外でのファイルの変更・修正をするとバグります</font>のでご注意ください。</p>
+<h3 id="gitの大文字小文字区別について"><a href="#Gitの大文字・小文字区別について" class="headerlink" title="Gitの大文字・小文字区別について"></a>Gitの大文字・小文字区別について</h3><p>Gitはデフォルトでは大文字・小文字の区別を<strong>しません</strong>。
+ですのでそれを意識せずにURLの大文字・小文字を修正してしまうと404エラー（File Not Found）に繋がることになります。</p>
+<p>このような事態を防ぐために、Gitで大文字・小文字を区別するように設定を以下の通り変更します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config core.ignorecase <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
-<p><a href="https://future-chem.com/rdkit-2ddraw-svg/#Draw-2">RDKitでの構造式描画を詳しく解説</a><br><a href="https://www.rdkit.org/docs/source/rdkit.Chem.Draw.rdMolDraw2D.html#rdkit.Chem.Draw.rdMolDraw2D.MolDraw2D">rdkit.Chem.Draw.rdMolDraw2D module</a></p>
-</div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/rdkit/">rdkit</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/01/14/homebrew/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">HomebrewでMacのパッケージ・アプリケーションの管理</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/01/02/book-to-pdf/"><span class="level-item">本の自炊（PDF化）〜管理方法(iPhone, iPadユーザー向け)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
-            this.page.url = 'https://sishida21.github.io/2020/01/07/rdkit-draw-mol/';
-            this.page.identifier = '2020/01/07/rdkit-draw-mol/';
+<p>この設定しておけば今後、大文字・小文字を区別してGit管理してくれるようになります。
+ですが、今までやってしまったことに関してはマニュアルで修正していく必要があるのでそれをやってしまいましょう。</p>
+<h3 id="git管理から外したい消したいファイル"><a href="#Git管理から外したい・消したいファイル" class="headerlink" title="Git管理から外したい・消したいファイル"></a>Git管理から外したい・消したいファイル</h3><p>以上までの設定を終えていれば、今後はGit起因の404エラーには遭遇しにくくなると思います。
+なのでこれ以前までの負の産物を<strong>Gitコマンドを使って</strong>きれいに精算してしまいましょう。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm -rf Contact</span><br><span class="line">git commit -m <span class="string">"delete Contact"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h3 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h3><p>ここまでやれば、後は一度Hexoで生成してたものをきれいにしてデプロイしなおせば終わりです。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../</span><br><span class="line">hexo clean</span><br><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><hr>
+<p>以上が私のケースにおけるHexoでの404エラーの対処法になります。
+今回はページについての対処法を例に挙げて解説しましたが、他に私が遭遇したものとしてはCategoriesの大文字・小文字の変更でも同様の404エラーが起きていて同じように対処しました。</p>
+<p>日本でHexoユーザーがどれくらいいるのかはわかりませんが、もし同じようなエラーに遭遇した人の助けになればと思いまとめておきました。</p>
+<p>それでは。</p>
+</div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Hexo/">Hexo</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/05/29/search-tree-visualization-using-networkx/"><span class="level-item">MatplotlibとNetworkXを使った探索木の可視化</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/';
+            this.page.identifier = '2020/06/01/solve-page-404-error-in-hexo/';
         };
         (function() {
             var d = document, s = d.createElement('script');  
