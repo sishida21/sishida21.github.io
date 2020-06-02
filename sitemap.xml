@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/2019/12/09/intro/</loc>
+    
+    <lastmod>2020-06-02T14:15:32.098Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/</loc>
     
     <lastmod>2020-06-01T13:35:09.691Z</lastmod>
@@ -159,13 +166,6 @@
     <loc>https://sishida21.github.io/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/</loc>
     
     <lastmod>2020-02-15T20:14:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2019/12/09/intro/</loc>
-    
-    <lastmod>2019-12-19T12:45:04.000Z</lastmod>
     
   </url>
   
