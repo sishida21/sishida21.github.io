@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/2020/01/27/role-assign-slack-bot/</loc>
+    
+    <lastmod>2020-06-04T12:03:10.410Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2019/12/09/intro/</loc>
     
     <lastmod>2020-06-02T14:27:24.875Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://sishida21.github.io/2019/12/15/latex-to-word/</loc>
     
     <lastmod>2020-05-31T09:25:41.077Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/01/27/role-assign-slack-bot/</loc>
-    
-    <lastmod>2020-05-31T09:25:24.348Z</lastmod>
     
   </url>
   
