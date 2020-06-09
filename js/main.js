@@ -1,5 +1,9 @@
 /* eslint-disable node/no-unsupported-features/node-builtins */
 (function($, moment, ClipboardJS, config) {
+    if (!$('.columns .column-right-shadow').children().length) {
+        $('.columns .column-right-shadow').append($('.columns .column-right').children().clone());
+    }
+
     $('.article img:not(".not-gallery-item")').each(function() {
         // wrap images with link and add caption if possible
         if ($(this).parent('a').length === 0) {
@@ -9,20 +13,6 @@
             }
         }
     });
-
-    if (typeof $.fn.lightGallery === 'function') {
-        $('.article').lightGallery({ selector: '.gallery-item' });
-    }
-    if (typeof $.fn.justifiedGallery === 'function') {
-        if ($('.justified-gallery > p > .gallery-item').length) {
-            $('.justified-gallery > p > .gallery-item').unwrap();
-        }
-        $('.justified-gallery').justifiedGallery();
-    }
-
-    if (!$('.columns .column-right-shadow').children().length) {
-        $('.columns .column-right-shadow').append($('.columns .column-right').children().clone());
-    }
 
     if (typeof moment === 'function') {
         $('.article-meta time').each(function() {
@@ -72,46 +62,37 @@
             }
         });
 
-
-        const clipboard = config.article.highlight.clipboard;
-        const fold = config.article.highlight.fold.trim();
-
-        $('figure.highlight').each(function() {
-            if ($(this).find('figcaption').length) {
-                $(this).find('figcaption').addClass('level is-mobile');
-                $(this).find('figcaption').append('<div class="level-left">');
-                $(this).find('figcaption').append('<div class="level-right">');
-                $(this).find('figcaption div.level-left').append($(this).find('figcaption').find('span'));
-                $(this).find('figcaption div.level-right').append($(this).find('figcaption').find('a'));
-            } else {
-                if (clipboard || fold) {
-                    $(this).prepend('<figcaption class="level is-mobile"><div class="level-left"></div><div class="level-right"></div></figcaption>');
-                }
-            }
-        });
-
-        if (typeof ClipboardJS !== 'undefined' && clipboard) {
+        if (typeof ClipboardJS !== 'undefined' && config.article.highlight.clipboard) {
             $('figure.highlight').each(function() {
                 const id = 'code-' + Date.now() + (Math.random() * 1000 | 0);
                 const button = '<a href="javascript:;" class="copy" title="Copy" data-clipboard-target="#' + id + ' .code"><i class="fas fa-copy"></i></a>';
                 $(this).attr('id', id);
-                $(this).find('figcaption div.level-right').append(button);
+                if ($(this).find('figcaption').length) {
+                    $(this).find('figcaption').prepend(button);
+                } else {
+                    $(this).prepend('<figcaption>' + button + '</figcaption>');
+                }
             });
             new ClipboardJS('.highlight .copy'); // eslint-disable-line no-new
         }
-
-        if (fold) {
+        const fold = config.article.highlight.fold;
+        if (fold.trim()) {
             $('figure.highlight').each(function() {
-                if ($(this).find('figcaption').find('span').length > 0) {
-                    const span = $(this).find('figcaption').find('span');
-                    if (span[0].innerText.indexOf('>folded') > -1) {
-                        span[0].innerText = span[0].innerText.replace('>folded', '');
-                        $(this).find('figcaption div.level-left').prepend(createFoldButton('folded'));
-                        toggleFold(this, true);
-                        return;
+                if ($(this).find('figcaption').length) {
+                    // fold individual code block
+                    if ($(this).find('figcaption').find('span').length > 0) {
+                        const span = $(this).find('figcaption').find('span').eq(0);
+                        if (span[0].innerText.indexOf('>folded') > -1) {
+                            span[0].innerText = span[0].innerText.replace('>folded', '');
+                            $(this).find('figcaption').prepend(createFoldButton('folded'));
+                            toggleFold(this, true);
+                            return;
+                        }
                     }
+                    $(this).find('figcaption').prepend(createFoldButton(fold));
+                } else {
+                    $(this).prepend('<figcaption>' + createFoldButton(fold) + '</figcaption>');
                 }
-                $(this).find('figcaption div.level-left').prepend(createFoldButton(fold));
                 toggleFold(this, fold === 'folded');
             });
 
@@ -148,10 +129,7 @@
         if (!sitehost) return false;
 
         // handle relative url
-        let data;
-        try {
-            data = new URL(input, 'http://' + sitehost);
-        } catch (e) { return false; }
+        const data = new URL(input, 'http://' + sitehost);
 
         // handle mailto: javascript: vbscript: and so on
         if (data.origin === 'null') return false;
