@@ -136,9 +136,9 @@
     </summary>
     
     
-      <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
-    
       <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
+    
+      <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
     
       <category term="iPad" scheme="https://sishida21.github.io/categories/Apple/iPad/"/>
     
@@ -163,9 +163,9 @@
     </summary>
     
     
-      <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
-    
       <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
+    
+      <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
     
       <category term="iPad" scheme="https://sishida21.github.io/categories/Apple/iPad/"/>
     
@@ -192,9 +192,9 @@
     </summary>
     
     
-      <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
-    
       <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
+    
+      <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
     
       <category term="iPad" scheme="https://sishida21.github.io/categories/Apple/iPad/"/>
     
@@ -288,9 +288,9 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
       <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
@@ -419,9 +419,9 @@
       <category term="Mac" scheme="https://sishida21.github.io/categories/Apple/Mac/"/>
     
     
-      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
-    
       <category term="homebrew" scheme="https://sishida21.github.io/tags/homebrew/"/>
+    
+      <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
     
   </entry>
   
@@ -441,11 +441,11 @@
     </summary>
     
     
-      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
-    
       <category term="Programming" scheme="https://sishida21.github.io/categories/Programming/"/>
     
       <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
+    
+      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
     
     
       <category term="rdkit" scheme="https://sishida21.github.io/tags/rdkit/"/>
