@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /privacy_policy/
 Sitemap: https://sishida21.github.io/sitemap.xml
