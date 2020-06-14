@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/2019/12/12/remote-jupyter-notebook/</loc>
+    
+    <lastmod>2020-06-14T13:07:44.269Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/01/02/book-to-pdf/</loc>
+    
+    <lastmod>2020-06-14T13:06:44.171Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/01/27/role-assign-slack-bot/</loc>
+    
+    <lastmod>2020-06-14T13:03:07.686Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/02/16/add-ssd-to-server/</loc>
+    
+    <lastmod>2020-06-14T13:02:05.176Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/04/11/recommend-cheminfo-books-and-tutorials/</loc>
     
     <lastmod>2020-06-14T12:57:04.211Z</lastmod>
@@ -44,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2019/12/12/remote-jupyter-notebook/</loc>
-    
-    <lastmod>2020-06-12T23:36:46.991Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/privacy_policy/index.html</loc>
     
     <lastmod>2020-06-10T04:19:29.973Z</lastmod>
@@ -68,13 +89,6 @@
     <loc>https://sishida21.github.io/2020/01/07/rdkit-draw-mol/</loc>
     
     <lastmod>2020-06-09T21:05:41.963Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/01/27/role-assign-slack-bot/</loc>
-    
-    <lastmod>2020-06-05T14:06:02.642Z</lastmod>
     
   </url>
   
@@ -103,13 +117,6 @@
     <loc>https://sishida21.github.io/2019/12/09/pyenv/</loc>
     
     <lastmod>2020-05-31T09:45:19.768Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/01/02/book-to-pdf/</loc>
-    
-    <lastmod>2020-05-31T09:26:33.007Z</lastmod>
     
   </url>
   
@@ -152,13 +159,6 @@
     <loc>https://sishida21.github.io/about/index.html</loc>
     
     <lastmod>2020-05-14T13:39:56.571Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/02/16/add-ssd-to-server/</loc>
-    
-    <lastmod>2020-04-10T12:31:27.000Z</lastmod>
     
   </url>
   
