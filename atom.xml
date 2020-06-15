@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sishida21.github.io/"/>
-  <updated>2020-06-01T13:35:09.691Z</updated>
+  <updated>2020-06-15T12:49:20.892Z</updated>
   <id>https://sishida21.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【RDKit】RWMol で分子(Mol instance) を編集する</title>
+    <link href="https://sishida21.github.io/2020/06/15/editable-mol-object-in-rdkit/"/>
+    <id>https://sishida21.github.io/2020/06/15/editable-mol-object-in-rdkit/</id>
+    <published>2020-06-15T12:45:41.000Z</published>
+    <updated>2020-06-15T12:49:20.892Z</updated>
+    
+    <content type="html"><![CDATA[<p>RDKitを使っていると、扱っている分子を編集したい時がたまにあるかと思います。 RDKitにおける分子は通常Mol instance として扱われてますが、<strong>このままでは編集はできないため一度RWMol (read/write Mol) instance に変換してあげる必要</strong>があります。 そこで本記事では、RWMol instance での分子の編集についてまとめていこうと思います。</p><a id="more"></a><p>ここでは簡単な例として、<font color="magenta">アスピリン -&gt; サリチル酸 -&gt; アスピリン</font> の変換を通してRWMolの使い方について記載していこうと思います。</p><p>ざっとした流れを先に書いておくと、</p><ol><li>Mol -&gt; RWMol (<code>rwmol = RWMol(Mol)</code>)</li><li>RWMol で編集</li><li>RWMol -&gt; Mol (<code>mol = RWMol.GetMol()</code>)</li></ol><p>になります。それでは実際のコードの解説に進みます。</p><h2 id="mol-instancerwmol-instance-の準備"><a href="#Mol-instance・RWMol-instance-の準備" class="headerlink" title="Mol instance・RWMol instance の準備"></a>Mol instance・RWMol instance の準備</h2><hr><p>ここは通常通り<code>Chem.MolFromSmiles()</code>等で分子を読み込めば良いのですが、ここで<font color="magenta">分子にAtom Mappingをしておくことが大切</font>です。 <font color="darkblue">原子の削除をする際にindex を指定する</font>のですが、<font color="darkblue">このindex は都度ズレてしまい期待通りの編集ができなくなるリスク</font>があります。 Atom Mapping をしておけば、編集前の分子における原子を正確に指定できるので安心です。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mol = Chem.MolFromSmiles(<span class="string">"CC(=O)OC1=CC=CC=C1C(O)=O"</span>)  <span class="comment"># aspirin</span></span><br><span class="line"><span class="keyword">for</span> i, atom <span class="keyword">in</span> enumerate(mol.GetAtoms(), start=<span class="number">1</span>):</span><br><span class="line">    atom.SetAtomMapNum(i)</span><br><span class="line">Draw.MolsToGridImage([mol])</span><br></pre></td></tr></table></figure><h3 id="出力"><a href="#出力" class="headerlink" title="出力"></a>出力</h3><img src="/2020/06/15/editable-mol-object-in-rdkit/aspirin.png" title="aspirin"><h2 id="原子の削除"><a href="#原子の削除" class="headerlink" title="原子の削除"></a>原子の削除</h2><hr><p>「アスピリン -&gt; サリチル酸」へ変換するため、<code>C1, C2, O3</code>の原子を削除します。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">rwmol = RWMol(mol)</span><br><span class="line"></span><br><span class="line">rm_map_num = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">for</span> map_num <span class="keyword">in</span> rm_map_num:</span><br><span class="line">    idx = [atom.GetIdx() <span class="keyword">for</span> atom <span class="keyword">in</span> rwmol.GetAtoms() <span class="keyword">if</span> atom.GetAtomMapNum() == map_num][<span class="number">0</span>]</span><br><span class="line">    rwmol.RemoveAtom(idx)</span><br><span class="line"></span><br><span class="line">mol = rwmol.GetMol()</span><br><span class="line">Chem.SanitizeMol(mol)</span><br><span class="line"></span><br><span class="line">Draw.MolsToGridImage([mol], subImgSize=(<span class="number">250</span>,<span class="number">250</span>))</span><br></pre></td></tr></table></figure><h3 id="出力"><a href="#出力-1" class="headerlink" title="出力"></a>出力</h3><img src="/2020/06/15/editable-mol-object-in-rdkit/salicylic-acid.png" title="salicylic-acid"><p>削除対象の原子の指定にAtom Mapで指定ができないため、Atom Map から原子のindexを取得する面倒な処理をしています。</p><h2 id="原子の追加"><a href="#原子の追加" class="headerlink" title="原子の追加"></a>原子の追加</h2><hr><p>「サリチル酸 -&gt; アスピリン」へ変換するため、O4に対して<code>CC=O</code>を追加します。 (今回の例では無理やりループで回すこともできましたが、可読性が下がって理解しにくくなりそうなので書き下してます。)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">rwmol = RWMol(mol)</span><br><span class="line"></span><br><span class="line"><span class="comment"># C2 -&gt; O4 (single bond)</span></span><br><span class="line">from_idx = rwmol.AddAtom(Chem.Atom(<span class="number">6</span>))</span><br><span class="line">to_idx = [atom.GetIdx() <span class="keyword">for</span> atom <span class="keyword">in</span> rwmol.GetAtoms() <span class="keyword">if</span> atom.GetAtomMapNum() == <span class="number">4</span>][<span class="number">0</span>]</span><br><span class="line">rwmol.GetAtomWithIdx(from_idx).SetAtomMapNum(<span class="number">2</span>)</span><br><span class="line">rwmol.AddBond(from_idx, to_idx, Chem.BondType.SINGLE)</span><br><span class="line"><span class="comment"># C1 -&gt; C2 (single bond)</span></span><br><span class="line">from_idx = rwmol.AddAtom(Chem.Atom(<span class="number">6</span>))</span><br><span class="line">to_idx = [atom.GetIdx() <span class="keyword">for</span> atom <span class="keyword">in</span> rwmol.GetAtoms() <span class="keyword">if</span> atom.GetAtomMapNum() == <span class="number">2</span>][<span class="number">0</span>]</span><br><span class="line">rwmol.GetAtomWithIdx(from_idx).SetAtomMapNum(<span class="number">1</span>)</span><br><span class="line">rwmol.AddBond(from_idx, to_idx, Chem.BondType.SINGLE)</span><br><span class="line"><span class="comment"># O3 -&gt; C2 (double bond)</span></span><br><span class="line">from_idx = rwmol.AddAtom(Chem.Atom(<span class="number">8</span>))</span><br><span class="line">to_idx = [atom.GetIdx() <span class="keyword">for</span> atom <span class="keyword">in</span> rwmol.GetAtoms() <span class="keyword">if</span> atom.GetAtomMapNum() == <span class="number">2</span>][<span class="number">0</span>]</span><br><span class="line">rwmol.GetAtomWithIdx(from_idx).SetAtomMapNum(<span class="number">3</span>)</span><br><span class="line">rwmol.AddBond(from_idx, to_idx, Chem.BondType.DOUBLE)</span><br><span class="line"></span><br><span class="line">mol = rwmol.GetMol()</span><br><span class="line">Chem.SanitizeMol(mol)</span><br><span class="line"></span><br><span class="line">Draw.MolsToGridImage([mol])</span><br></pre></td></tr></table></figure><h3 id="出力"><a href="#出力-2" class="headerlink" title="出力"></a>出力</h3><img src="/2020/06/15/editable-mol-object-in-rdkit/aspirin.png" title="aspirin"><p>原子の削除に比べて、原子の追加はマニュアルでやる必要に迫られることが多そうな印象です。 場合によっては自動化できるかと思いますが、ロジックを組むのは少し面倒そうです。</p><h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><hr><p>RDKitで分子を編集したいという人がそもそも少ないからか、RWMol にパッと辿りつかず少し苦労したのでまとめた感じです。</p><p>私自身では原子の削除目的でしか利用したことがないためあまり気にしていませんでしたが、原子の追加はBondの追加もしないといけないのでだいぶ処理が煩雑になりますね。</p><p>ちなみに、<code>Draw.MolToImage()</code>を使わずに <code>Draw.MolsToGridImage()</code>をわざわざ使っているのは、出力される図が綺麗だからです。</p><p>それでは。</p><h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a>参照</h2><hr><p><a href="https://www.rdkit.org/docs/source/rdkit.Chem.rdchem.html">class rdkit.Chem.rdchem.RWMol</a></p>]]></content>
+    
+    <summary type="html">
+    
+      RDKitでRWMolを使ってMol instance を編集する
+    
+    </summary>
+    
+    
+      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
+    
+      <category term="Programming" scheme="https://sishida21.github.io/categories/Programming/"/>
+    
+      <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
+    
+    
+      <category term="RDKit" scheme="https://sishida21.github.io/tags/RDKit/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexoで作成したウェブサイトのページで404エラーが出たときの対処法</title>
@@ -60,9 +87,9 @@
       <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
     
     
-      <category term="NetworkX" scheme="https://sishida21.github.io/tags/NetworkX/"/>
-    
       <category term="Matplotlib" scheme="https://sishida21.github.io/tags/Matplotlib/"/>
+    
+      <category term="NetworkX" scheme="https://sishida21.github.io/tags/NetworkX/"/>
     
       <category term="Search Tree" scheme="https://sishida21.github.io/tags/Search-Tree/"/>
     
@@ -136,9 +163,9 @@
     </summary>
     
     
-      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
-    
       <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
+    
+      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
     
       <category term="iPad" scheme="https://sishida21.github.io/categories/Apple/iPad/"/>
     
@@ -163,16 +190,16 @@
     </summary>
     
     
-      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
-    
       <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
+    
+      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
     
       <category term="iPad" scheme="https://sishida21.github.io/categories/Apple/iPad/"/>
     
     
-      <category term="Magic_Keyboard" scheme="https://sishida21.github.io/tags/Magic-Keyboard/"/>
-    
       <category term="iPad" scheme="https://sishida21.github.io/tags/iPad/"/>
+    
+      <category term="Magic_Keyboard" scheme="https://sishida21.github.io/tags/Magic-Keyboard/"/>
     
   </entry>
   
@@ -192,9 +219,9 @@
     </summary>
     
     
-      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
-    
       <category term="Apple" scheme="https://sishida21.github.io/categories/Apple/"/>
+    
+      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
     
       <category term="iPad" scheme="https://sishida21.github.io/categories/Apple/iPad/"/>
     
@@ -259,13 +286,13 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
-    
       <category term="TeachOpenCADD" scheme="https://sishida21.github.io/tags/TeachOpenCADD/"/>
     
       <category term="drug discovery" scheme="https://sishida21.github.io/tags/drug-discovery/"/>
     
       <category term="machine learning" scheme="https://sishida21.github.io/tags/machine-learning/"/>
+    
+      <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
   </entry>
   
@@ -288,9 +315,9 @@
       <category term="Books" scheme="https://sishida21.github.io/categories/Books/"/>
     
     
-      <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
-    
       <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
+    
+      <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
     
       <category term="Books" scheme="https://sishida21.github.io/tags/Books/"/>
     
@@ -419,9 +446,9 @@
       <category term="Mac" scheme="https://sishida21.github.io/categories/Apple/Mac/"/>
     
     
-      <category term="homebrew" scheme="https://sishida21.github.io/tags/homebrew/"/>
-    
       <category term="macOS" scheme="https://sishida21.github.io/tags/macOS/"/>
+    
+      <category term="homebrew" scheme="https://sishida21.github.io/tags/homebrew/"/>
     
   </entry>
   
@@ -524,31 +551,6 @@
     
     
       <category term="jupyter_notebook" scheme="https://sishida21.github.io/tags/jupyter-notebook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python環境構築(pyenv + pyenv-virtualenv)</title>
-    <link href="https://sishida21.github.io/2019/12/09/pyenv/"/>
-    <id>https://sishida21.github.io/2019/12/09/pyenv/</id>
-    <published>2019-12-09T11:57:03.000Z</published>
-    <updated>2020-05-31T09:45:19.768Z</updated>
-    
-    <content type="html"><![CDATA[<p>普段私はpyenv + pyenv-virtualenvの組み合わせでpythonの環境管理をしています。今回の記事ではその設定方法について記載していきます。 記事中のコードを手元で実行すれば簡単にpyenv・pyenv-virtualenvの環境が設定できます。</p><a id="more"></a><p>動作確認はLinux, MaxOSでしてます。</p><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#install-pyenv-and-pyenv-virtualenv">Install pyenv and pyenv-virtualenv</a><ul><li><a href="#install-pyenv">Install pyenv</a></li><li><a href="#install-pyenv-virtualenv">Install pyenv-virtualenv</a></li></ul></li><li><a href="#set-virtual-environment">Set virtual environment</a><ul><li><a href="#install-miniconda">Install miniconda</a></li><li><a href="#create-home-environment">Create home environment</a></li></ul></li><li><a href="#create-test-environment">Create test environment</a></li></ul><h2 id="install-pyenv-and-pyenv-virtualenv"><a href="#Install-pyenv-and-pyenv-virtualenv" class="headerlink" title="Install pyenv and pyenv-virtualenv"></a>Install pyenv and pyenv-virtualenv</h2><hr><p>下記のスクリプトをコピペして、<code>install_pyenv.sh</code>というファイルを作成する。</p><figure class="highlight bash"><figcaption><span>install_pyenv.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install pyenv</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/yyuu/pyenv.git <span class="variable">$HOME</span>/.pyenv</span><br><span class="line"><span class="built_in">echo</span> <span class="string">''</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'# Setting for pyenv and pyenv-virtualenv'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PYENV_ROOT="$HOME/.pyenv"'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$PYENV_ROOT/bin:$PATH"'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'    eval "$(pyenv init -)"'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'fi'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install pyenv-virtualenv</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'eval "$(pyenv virtualenv-init -)"'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"><span class="built_in">source</span> <span class="variable">$HOME</span>/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> DONE!</span><br></pre></td></tr></table></figure><p>ターミナルを起動してダウンロードした場所に移動した後に、下記のコマンドを実行して下さい。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install_pyenv.sh</span><br></pre></td></tr></table></figure><p>インストールが終わったら一度ターミナルを立ち上げ直して下さい。 これでpyenv + pyenv-virtualenvのインストールは完了です。</p><h2 id="set-virtual-environment"><a href="#Set-virtual-environment" class="headerlink" title="Set virtual environment"></a>Set virtual environment</h2><hr><h3 id="install-miniconda"><a href="#Install-miniconda" class="headerlink" title="Install miniconda"></a>Install miniconda</h3><p>python環境は全てpyenv-virtualenv上で管理しています。<br>そうすることで環境の使い捨てが簡単になるので便利です。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pyenv install miniconda3-4.2.12</span><br><span class="line">pyenv shell miniconda3-4.2.12</span><br></pre></td></tr></table></figure><h3 id="create-home-environment"><a href="#Create-home-environment" class="headerlink" title="Create home environment"></a>Create home environment</h3><p>インストールしたminiconda上でcondaコマンドを使用すると、condaのバージョンが上がってpyenvがおかしくなります。 それを防ぐために仮想home環境を作成し、そこをデフォルトの作業環境とします。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n home python=3.6</span><br><span class="line">pyenv global miniconda3-4.2.12/envs/home</span><br></pre></td></tr></table></figure><h2 id="create-test-environment"><a href="#Create-test-environment" class="headerlink" title="Create test environment"></a>Create test environment</h2><hr><p>あとはテーマ毎等で仮想環境を作って個別に管理します。 そうすることで各環境を最小構成にすることができて干渉する心配もありません。<br>ここでは試しにcalc環境を作成します。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create -n calc python=3.6</span><br><span class="line">pyenv shell miniconda3-4.2.12/envs/calc</span><br><span class="line">conda install -c rdkit rdkit</span><br></pre></td></tr></table></figure><p>簡単ではありますが、以上でpythonの環境構築についての解説を終わります。 何かご質問等ありましたらコメントにお願いします。</p>]]></content>
-    
-    <summary type="html">
-    
-      pyenvとpyenv-virtualenvを用いてpythonの環境構築
-    
-    </summary>
-    
-    
-      <category term="Programming" scheme="https://sishida21.github.io/categories/Programming/"/>
-    
-      <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
-    
-    
-      <category term="setup" scheme="https://sishida21.github.io/tags/setup/"/>
     
   </entry>
   
