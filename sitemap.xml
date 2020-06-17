@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/privacy_policy/index.html</loc>
+    
+    <lastmod>2020-06-17T10:23:14.241Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/01/14/homebrew/</loc>
     
     <lastmod>2020-06-17T06:28:00.924Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>https://sishida21.github.io/2020/06/15/editable-mol-object-in-rdkit/</loc>
     
     <lastmod>2020-06-17T05:47:41.155Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/privacy_policy/index.html</loc>
-    
-    <lastmod>2020-06-10T04:19:29.973Z</lastmod>
     
   </url>
   
