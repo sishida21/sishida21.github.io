@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/2020/07/15/chemaxon-molecule-handling/</loc>
+    
+    <lastmod>2020-07-15T09:45:24.956Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/06/15/editable-mol-object-in-rdkit/</loc>
+    
+    <lastmod>2020-07-15T09:42:49.680Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/2020/01/07/rdkit-draw-mol/</loc>
+    
+    <lastmod>2020-07-15T09:40:40.528Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/04/09/chemaxon-academia-install/</loc>
     
-    <lastmod>2020-07-12T20:23:38.793Z</lastmod>
+    <lastmod>2020-07-15T09:40:18.069Z</lastmod>
     
   </url>
   
@@ -44,13 +65,6 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2020/01/07/rdkit-draw-mol/</loc>
-    
-    <lastmod>2020-06-17T06:19:24.309Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/2020/01/02/book-to-pdf/</loc>
     
     <lastmod>2020-06-17T06:18:34.202Z</lastmod>
@@ -72,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/</loc>
+    <loc>https://sishida21.github.io/2020/05/10/use-ipad-pro-like-mac/</loc>
     
     <lastmod>2020-06-17T05:47:41.173Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2020/05/10/use-ipad-pro-like-mac/</loc>
+    <loc>https://sishida21.github.io/2020/06/01/solve-page-404-error-in-hexo/</loc>
     
     <lastmod>2020-06-17T05:47:41.173Z</lastmod>
     
@@ -152,13 +166,6 @@
     <loc>https://sishida21.github.io/2020/05/11/graph-settings-for-paper-with-matplotlib/</loc>
     
     <lastmod>2020-06-17T05:47:41.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/06/15/editable-mol-object-in-rdkit/</loc>
-    
-    <lastmod>2020-06-17T05:47:41.155Z</lastmod>
     
   </url>
   
