@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/about/index.html</loc>
+    
+    <lastmod>2020-07-16T18:41:33.429Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/07/15/chemaxon-molecule-handling/</loc>
     
     <lastmod>2020-07-16T04:50:08.317Z</lastmod>
@@ -173,13 +180,6 @@
     <loc>https://sishida21.github.io/contact/index.html</loc>
     
     <lastmod>2020-06-01T08:37:14.609Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/about/index.html</loc>
-    
-    <lastmod>2020-05-14T13:39:56.571Z</lastmod>
     
   </url>
   
