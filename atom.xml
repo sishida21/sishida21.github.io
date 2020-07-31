@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sishida21.github.io/"/>
-  <updated>2020-07-16T04:50:08.317Z</updated>
+  <updated>2020-07-31T12:31:50.150Z</updated>
   <id>https://sishida21.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【RDKit】化合物の共鳴構造を列挙する</title>
+    <link href="https://sishida21.github.io/2020/07/31/rdkit-enumerate-resonance-structures/"/>
+    <id>https://sishida21.github.io/2020/07/31/rdkit-enumerate-resonance-structures/</id>
+    <published>2020-07-31T12:31:50.000Z</published>
+    <updated>2020-07-31T12:31:50.150Z</updated>
+    
+    <content type="html"><![CDATA[<p>RDKitで化合物を扱う際に、共鳴構造の列挙をする必要がでてくる時があるかと思います。 その方法を調べてみたところ、その方法について解説している記事がなかったため、この記事で簡単にまとめることにしました。</p><a id="more"></a><h2 id="環境ライブラリ"><a href="#環境・ライブラリ" class="headerlink" title="環境・ライブラリ"></a>環境・ライブラリ</h2><ul><li>Python: 3.6</li><li>RDKit: 2020.03.3.0</li></ul><h2 id="やり方だけ知りたい人用"><a href="#やり方だけ知りたい人用" class="headerlink" title="やり方だけ知りたい人用"></a>やり方だけ知りたい人用</h2><p>解説とかいらないからとりあえず方法だけ知りたいって人は以下のスクリプトを参考にして下さい。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> Chem</span><br><span class="line"><span class="keyword">from</span> rdkit.Chem <span class="keyword">import</span> ResonanceMolSupplier, ResonanceFlags</span><br><span class="line"></span><br><span class="line">mol = Chem.MolFromSmiles(<span class="string">"C1=CC2=C(C=C1)C=CC=C2"</span>)  <span class="comment"># Naphthalene</span></span><br><span class="line"></span><br><span class="line">suppl = ResonanceMolSupplier(mol, ResonanceFlags.KEKULE_ALL)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> suppl:</span><br><span class="line">    print(Chem.MolToSmiles(m, kekuleSmiles=<span class="literal">True</span>))</span><br></pre></td></tr></table></figure><h2 id="共鳴構造を持つ化合物の用意"><a href="#共鳴構造を持つ化合物の用意" class="headerlink" title="共鳴構造を持つ化合物の用意"></a>共鳴構造を持つ化合物の用意</h2><p>今回はとりあえず3つの共鳴構造を持つナフタレンに対して共鳴構造を列挙してみたいと思います。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> Chem</span><br><span class="line"></span><br><span class="line">naphthalene = Chem.MolFromSmiles(<span class="string">"C1=CC2=C(C=C1)C=CC=C2"</span>)  <span class="comment"># 3 resonance structures</span></span><br></pre></td></tr></table></figure><h2 id="resonancemolsupplier-を使って共鳴構造の列挙"><a href="#ResonanceMolSupplier-を使って共鳴構造の列挙" class="headerlink" title="ResonanceMolSupplier を使って共鳴構造の列挙"></a>ResonanceMolSupplier を使って共鳴構造の列挙</h2><p>RDKitで化合物の共鳴構造を列挙するためには <code>rdkit.Chem.ResonanceMolSupplier</code> class を使います。 他のSupplier class と使い方は同じです。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rdkit.Chem <span class="keyword">import</span> ResonanceMolSupplier, ResonanceFlags</span><br><span class="line"></span><br><span class="line">suppl = ResonanceMolSupplier(naphthalene, ResonanceFlags.KEKULE_ALL)</span><br><span class="line"><span class="keyword">for</span> i, m <span class="keyword">in</span> enumerate(suppl):</span><br><span class="line">    print(<span class="string">f"#<span class="subst">&#123;i&#125;</span>: <span class="subst">&#123;Chem.MolToSmiles(m, kekuleSmiles=<span class="literal">True</span>)&#125;</span>"</span>)</span><br></pre></td></tr></table></figure><figure class="highlight vala"><figcaption><span>output</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#0: C1=CC2=C(C=C1)C=CC=C2</span></span><br><span class="line"><span class="meta">#1: C1=CC2=CC=CC=C2C=C1</span></span><br><span class="line"><span class="meta">#2: C1=CC=C2C=CC=CC2=C1</span></span><br></pre></td></tr></table></figure><p>描画すると以下のような感じです。</p><img src="/2020/07/31/rdkit-enumerate-resonance-structures/naphthalene_resonance_structures.png"><p>正しく共鳴構造が列挙できていることが確認できました。</p><p>単純に共鳴構造の数が欲しいだけの場合は、<code>len(suppl)</code> で取得できます。</p><h2 id="resonanceflags-の種類"><a href="#ResonanceFlags-の種類" class="headerlink" title="ResonanceFlags の種類"></a>ResonanceFlags の種類</h2><p>今回は全ての共鳴構造を列挙したかったため、 <code>ResonanceFlags.KEKULE_ALL</code> をオプションとして指定しました。 他には以下のオプションがあるため、必要に応じて指定して下さい。</p><ul><li>ALLOW_CHARGE_SEPARATION</li><li>ALLOW_INCOMPLETE_OCTETS</li><li>UNCONSTRAINED_ANIONS</li><li>UNCONSTRAINED_CATIONS</li></ul><h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>あまり使う頻度としては高くないかと思いますが、RDKitで共鳴構造を列挙したい時は今回紹介した方法を使うと簡単にできます。 大量に共鳴構造が得られることがわかっている場合は、<code>SetNumThreads</code> メソッドでスレッド数を指定すれば並列で計算できるので時短できます。 また列挙する最大の構造数は1000になっているので、必要に応じて<code>maxStructs</code> で指定して下さい。</p><p>それでは</p><h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a>参照</h2><ul><li><a href="https://www.rdkit.org/docs/source/rdkit.Chem.rdchem.html#rdkit.Chem.rdchem.ResonanceMolSupplier">ResonanceMolSupplier</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      RDKitで化合物の共鳴構造を列挙する
+    
+    </summary>
+    
+    
+      <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
+    
+      <category term="Programming" scheme="https://sishida21.github.io/categories/Programming/"/>
+    
+      <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
+    
+      <category term="RDKit" scheme="https://sishida21.github.io/categories/Cheminformatics/RDKit/"/>
+    
+    
+      <category term="Resonance structure" scheme="https://sishida21.github.io/tags/Resonance-structure/"/>
+    
+  </entry>
   
   <entry>
     <title>ChemAxon API を用いて分子の読み込み・書き込みをする</title>
@@ -536,33 +565,6 @@
     
     
       <category term="book_scanning" scheme="https://sishida21.github.io/tags/book-scanning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LaTeXからWordに変換する方法(Mac)</title>
-    <link href="https://sishida21.github.io/2019/12/15/latex-to-word/"/>
-    <id>https://sishida21.github.io/2019/12/15/latex-to-word/</id>
-    <published>2019-12-15T09:03:49.000Z</published>
-    <updated>2020-06-17T06:17:44.070Z</updated>
-    
-    <content type="html"><![CDATA[<p>Overleafで論文のやり取りをする際、有料版でないとコメント機能が使えないです。そのためlatexからwordファイルに変換したいと思い調べました。 いくつかの方法（latex2rtf, pandoc, GrindEQ）がよくヒットしますが、一番シンプルかつ他にも汎用性のあると感じた方法を以下に記載します。</p><a id="more"></a><p>※参照のサイトではMacではできずWindowsのみで今回の方法が機能したと記載されてますが、Macでもできたのでまとめました。</p><h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><ul><li>macOS Catalina: 10.15.1</li><li>Microsoft Word for Mac: 16.32</li><li>Overleaf</li></ul><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol><li>Overleafに対象のlatexをアップロードし、PDFでダウンロードする。</li><li>そのPDFをWordで開く。</li></ol><p>以上で終わりです。（WordでPDFが開けるということを知っている人からすれば当たり前な方法ですかね。。）</p><h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>さすがにFigureとかは崩れてしまうので完璧とまでは言えないですが、コメントのやり取り程度の用途でしたら十分です。</p><h2 id="参照"><a href="#参照" class="headerlink" title="参照"></a>参照</h2><ul><li><a href="https://quantixed.org/2018/01/09/in-a-word-latex-to-word-and-vice-versa/">In a Word: LaTeX to Word and vice versa</a></li><li><a href="https://www.overleaf.com/learn/how-to/Exporting_your_work_from_Overleaf">Exporting your work from Overleaf</a></li><li><a href="https://pandoc.org/">pandoc</a></li><li><a href="https://www.grindeq.com/">GrindEQ</a></li><li><a href="http://latex2rtf.sourceforge.net/">latex2rtf</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Overleafを経由してLaTeXからWordに変換する
-    
-    </summary>
-    
-    
-      <category term="Lifehack" scheme="https://sishida21.github.io/categories/Lifehack/"/>
-    
-    
-      <category term="LaTeX" scheme="https://sishida21.github.io/tags/LaTeX/"/>
-    
-      <category term="Word" scheme="https://sishida21.github.io/tags/Word/"/>
-    
-      <category term="Overleaf" scheme="https://sishida21.github.io/tags/Overleaf/"/>
     
   </entry>
   
