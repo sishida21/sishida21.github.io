@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sishida21.github.io/about/index.html</loc>
+    
+    <lastmod>2020-08-10T00:19:53.340Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/2020/02/16/add-ssd-to-server/</loc>
     
     <lastmod>2020-08-05T04:29:40.370Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://sishida21.github.io/2020/07/31/rdkit-enumerate-resonance-structures/</loc>
     
     <lastmod>2020-07-31T12:31:50.150Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/about/index.html</loc>
-    
-    <lastmod>2020-07-19T06:46:08.326Z</lastmod>
     
   </url>
   
