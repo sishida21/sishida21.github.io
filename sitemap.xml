@@ -214,27 +214,6 @@
 
   
   <url>
-    <loc>https://sishida21.github.io/tags/Matplotlib/</loc>
-    <lastmod>2020-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/macOS/</loc>
-    <lastmod>2020-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/iPad/</loc>
-    <lastmod>2020-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/tags/Linux/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -291,7 +270,21 @@
   </url>
   
   <url>
+    <loc>https://sishida21.github.io/tags/Matplotlib/</loc>
+    <lastmod>2020-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/tags/homebrew/</loc>
+    <lastmod>2020-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/tags/macOS/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -320,6 +313,13 @@
   
   <url>
     <loc>https://sishida21.github.io/tags/Magic-Keyboard/</loc>
+    <lastmod>2020-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/tags/iPad/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -454,13 +454,6 @@
 
   
   <url>
-    <loc>https://sishida21.github.io/categories/Apple/</loc>
-    <lastmod>2020-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/categories/Linux/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -489,7 +482,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Apple/Mac/</loc>
+    <loc>https://sishida21.github.io/categories/Apple/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -510,7 +503,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Apple/iPad/</loc>
+    <loc>https://sishida21.github.io/categories/Programming/Python/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -531,13 +524,6 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Programming/Python/</loc>
-    <lastmod>2020-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/categories/iPad/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -545,7 +531,21 @@
   </url>
   
   <url>
+    <loc>https://sishida21.github.io/categories/Apple/Mac/</loc>
+    <lastmod>2020-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/categories/Programming/Google-Apps-Script/</loc>
+    <lastmod>2020-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/categories/Apple/iPad/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
