@@ -6,7 +6,7 @@
   <link href="https://sishida21.github.io/atom.xml" rel="self"/>
   
   <link href="https://sishida21.github.io/"/>
-  <updated>2021-08-07T06:51:48.678Z</updated>
+  <updated>2021-10-08T14:27:55.116Z</updated>
   <id>https://sishida21.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【RDKit】大環状分子をきれいに描画する方法</title>
+    <link href="https://sishida21.github.io/2021/10/08/rdkit-improve-macrocycle-visualization/"/>
+    <id>https://sishida21.github.io/2021/10/08/rdkit-improve-macrocycle-visualization/</id>
+    <published>2021-10-08T14:27:55.000Z</published>
+    <updated>2021-10-08T14:27:55.116Z</updated>
+    
+    <content type="html"><![CDATA[<p>RDKitの通常の方法で大環状分子を描画しようとすると、球体みたいに描画されてしまいかなり不格好なのが気になっている人は多いのではないかと思います。本記事では大環状分子をきれいに描画する方法について解説をしようと思います。</p><a id="more"></a><h2><span id="ライブラリ">ライブラリ</span></h2><ul><li>rdkit: 2021.03.1</li></ul><h2><span id="スクリプト">スクリプト</span></h2><figure class="highlight python"><figcaption><span>ライブラリのインポート</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> Chem</span><br><span class="line"><span class="keyword">from</span> rdkit.Chem <span class="keyword">import</span> Draw, rdCoordGen</span><br></pre></td></tr></table></figure><figure class="highlight python"><figcaption><span>一般的な分子の描画方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">erythromycin = Chem.MolFromSmiles(<span class="string">&quot;CC[C@@H]1[C@@]([C@@H]([C@H](C(=O)[C@@H](C[C@@]([C@@H]([C@H]([C@@H]([C@H](C(=O)O1)C)O[C@H]2C[C@@]([C@H]([C@@H](O2)C)O)(C)OC)C)O[C@H]3[C@@H]([C@H](C[C@H](O3)C)N(C)C)O)(C)O)C)C)O)(C)O&quot;</span>)</span><br><span class="line">Draw.MolToImage(erythromycin, size=(<span class="number">500</span>, <span class="number">500</span>))</span><br></pre></td></tr></table></figure><img src="/2021/10/08/rdkit-improve-macrocycle-visualization/image_normal.png" class title="出力"><p>14員環の部分が球状になっていて見にくいです。</p><figure class="highlight markdown"><figcaption><span>座標を計算してから描画する方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">erythromycin = Chem.MolFromSmiles(&quot;CC[<span class="string">C@@H</span>]1[<span class="string">C@@</span>](<span class="link">[C@@H]([C@H](C(=O</span>)[<span class="string">C@@H</span>](<span class="link">C[C@@]([C@@H]([C@H]([C@@H]([C@H](C(=O</span>)O1)C)O[<span class="string">C@H</span>]2C[<span class="string">C@@</span>](<span class="link">[C@H]([C@@H](O2</span>)C)O)(C)OC)C)O[<span class="string">C@H</span>]3[<span class="string">C@@H</span>](<span class="link">[C@H](C[C@H](O3</span>)C)N(C)C)O)(C)O)C)C)O)(C)O&quot;)</span><br><span class="line">rdCoordGen.AddCoords(erythromycin)</span><br><span class="line">Draw.MolToImage(erythromycin, size=(500, 500))</span><br></pre></td></tr></table></figure><img src="/2021/10/08/rdkit-improve-macrocycle-visualization/image_with_calc_coords.png" class title="出力"><p>14員環が見やすく描画されるようになりました。</p><h2><span id="解説">解説</span></h2><p>どうもRDKitのデフォルトでは描画する際にいい感じの座標を計算していないため、（特に）大環状分子になると変な描画になってしまうことが多々あるのかなと思います。なのでいい感じの座標を <code>rdkit.Chem.rdCoordGen</code> を使って計算してから描画すれば、きれいに描画されるという簡単な解決方法でした。ただ当然ながら通常よりも座標計算を挟むため、描画速度は遅くなるので大量の分子を一度に描画するケースなどでは大環状分子にのみ座標計算をするようにスクリプトを書くのがよいかと思います。</p><h2><span id="終わりに">終わりに</span></h2><p>一度知ってしまえばなんてことはない方法ですが、RDKitにはこういう隠れた機能がいっぱいありそれを見つけるのがけっこう難しいです。この記事がみなさんの一助になれば嬉しいです。</p><p>それでは。</p>]]></content>
+    
+    
+    <summary type="html">【RDKit】大環状分子をきれいに描画する方法</summary>
+    
+    
+    
+    <category term="Cheminformatics" scheme="https://sishida21.github.io/categories/Cheminformatics/"/>
+    
+    <category term="Programming" scheme="https://sishida21.github.io/categories/Programming/"/>
+    
+    <category term="Python" scheme="https://sishida21.github.io/categories/Programming/Python/"/>
+    
+    <category term="RDKit" scheme="https://sishida21.github.io/categories/Cheminformatics/RDKit/"/>
+    
+    
+    <category term="rdkit" scheme="https://sishida21.github.io/tags/rdkit/"/>
+    
+  </entry>
   
   <entry>
     <title>【RDKit】SAscoreの計算時に注意するポイント</title>
@@ -501,31 +528,6 @@
     <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
     
     <category term="Ubuntu" scheme="https://sishida21.github.io/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする</title>
-    <link href="https://sishida21.github.io/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/"/>
-    <id>https://sishida21.github.io/2020/02/15/access-owncloud-using-webdav-on-ubuntu18-04/</id>
-    <published>2020-02-15T07:30:42.000Z</published>
-    <updated>2020-06-17T06:22:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>ownCloudに大量のファイルをアップロードする際、リモートサーバ からローカルに落としてからやるのは非常に効率が悪いです。そこでこの記事ではUbuntuサーバ18.04にownCloudをマウント〜ファイルのアップロードまでの手順を紹介します。</p><a id="more"></a><h2><span id="環境必要パッケージ">環境・必要パッケージ</span></h2><ul><li>Ubuntu 18.04 (sudoが使えること)</li><li><a href="https://wiki.archlinux.jp/index.php/Davfs2">Davfs2</a></li><li><a href="https://owncloud.org/">ownCloud </a>10.0.8</li></ul><h2><span id="手順">手順</span></h2><ol><li>davfs2のインストールとマウントポイントの作成</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install davfs2</span><br><span class="line">sudo usermod -aG davfs2 &amp;lt;username&amp;gt;  <span class="comment"># add yourself to the davfs2 group</span></span><br><span class="line">mkdir ~/owncloud</span><br></pre></td></tr></table></figure><ol start="2"><li>davfs2の設定</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.davfs2</span><br><span class="line">sudo cp /etc/davfs2/secrets ~/.davfs2/secrets  <span class="comment"># create personal davfs2 configuration file</span></span><br><span class="line">sudo chown &amp;lt;username&amp;gt;:&amp;lt;username&amp;gt; ~/.davfs2/secrets</span><br><span class="line">chmod 600 ~/.davfs2/secrets</span><br></pre></td></tr></table></figure><ol start="3"><li>ownCloudのアカウント情報を <code>~/.davfs2/secrets</code>（davfs2の設定ファイル）に記入</li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;</span><br></pre></td></tr></table></figure><p>example.orgは自分が使っているownCloudサーバのURLに置換する。</p><ol start="4"><li><code>/etc/fstab</code> にownCloudのマウントの記入をする</li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.org/owncloud/remote.php/webdav　/home/&amp;lt;username&amp;gt;/owncloud davfs user,rw,noauto 0 0</span><br></pre></td></tr></table></figure><p><a href="https://wiki.archlinux.jp/index.php/Fstab"><code>/etc/fstab</code></a> の各フィールドは以下になります。スペースかタブ区切りなので、そこら辺を注意してください。また、今回は自動マウントはして欲しくないのでnoautoで設定しています。</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt;device&amp;gt; &amp;lt;mountpoint&amp;gt; &amp;lt;type&amp;gt; &amp;lt;options&amp;gt; &amp;lt;dump&amp;gt; &amp;lt;fsck&amp;gt;</span><br></pre></td></tr></table></figure><ol start="5"><li>ownCloudのマウント</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount ~/owncloud</span><br></pre></td></tr></table></figure><p>これでownCloudがUbuntu server にマウントできます。これ以降は<code>mount</code> と <code>umount</code>をするだけで良いです。またファイルのアップロードをする際は<code>rsync</code>を使うと差分のアップロードとかができるので良いです。</p><h2><span id="終わりに">終わりに</span></h2><p>ローカルPCで基本作業をしない人はこの設定をすると楽なのでおすすめです。</p><h2><span id="ハプニング">ハプニング</span></h2><p>最初にownCloudのマウントポイントを、別でマウントしているディレクトリに設定した際にbootが失敗する事態になりました。僕のようにならないよう、事前にfstabの仕組みをしっかり理解した上で作業するようにしてください。。</p><h2><span id="参照">参照</span></h2><p><a href="https://wiki.archlinux.jp/index.php/Davfs2">Davfs2</a></p><p><a href="https://doc.owncloud.org/server/8.2/user_manual/files/access_webdav.html">Accessing ownCloud Files Using WebDAV</a></p><p><a href="https://wiki.archlinux.jp/index.php/Fstab">fstab</a></p>]]></content>
-    
-    
-    <summary type="html">Ubuntu server 18.04からWebDAV経由でownCloudにアクセスする</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://sishida21.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://sishida21.github.io/tags/Linux/"/>
-    
-    <category term="Ubuntu" scheme="https://sishida21.github.io/tags/Ubuntu/"/>
-    
-    <category term="ownCloud" scheme="https://sishida21.github.io/tags/ownCloud/"/>
     
   </entry>
   
