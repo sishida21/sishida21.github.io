@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2023/01/10/recommend-books-machine-learning/</loc>
-    
-    <lastmod>2023-01-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/2022/12/17/manage-gpu-in-sge-on-ubuntu2004/</loc>
     
     <lastmod>2022-12-22</lastmod>
@@ -74,15 +65,6 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2020/04/11/recommend-cheminfo-books-and-tutorials/</loc>
-    
-    <lastmod>2021-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/2019/12/09/pyenv/</loc>
     
     <lastmod>2021-05-19</lastmod>
@@ -104,33 +86,6 @@
     <loc>https://sishida21.github.io/contact/index.html</loc>
     
     <lastmod>2021-05-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2021/01/01/recommend-comics-and-movies-to-acquire-liberal-arts/</loc>
-    
-    <lastmod>2021-01-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/09/30/recommend-bioinfo-books-and-tools/</loc>
-    
-    <lastmod>2020-09-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/04/10/recommend-books-infrastructure/</loc>
-    
-    <lastmod>2020-08-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -254,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2020/05/07/magic-keyboard-review/</loc>
+    <loc>https://sishida21.github.io/2019/12/09/intro/</loc>
     
     <lastmod>2020-06-17</lastmod>
     
@@ -272,16 +227,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/2019/12/09/intro/</loc>
-    
-    <lastmod>2020-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/2020/05/17/recommend-qc-books-and-tutorials/</loc>
+    <loc>https://sishida21.github.io/2020/05/07/magic-keyboard-review/</loc>
     
     <lastmod>2020-06-17</lastmod>
     
@@ -316,15 +262,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://sishida21.github.io/2020/04/27/recommend-books-programming/</loc>
-    
-    <lastmod>2020-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://sishida21.github.io/</loc>
@@ -342,7 +279,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/tags/Books/</loc>
+    <loc>https://sishida21.github.io/tags/macOS/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -364,13 +301,6 @@
   
   <url>
     <loc>https://sishida21.github.io/tags/ownCloud/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/macOS/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -426,6 +356,48 @@
   </url>
   
   <url>
+    <loc>https://sishida21.github.io/tags/iPad/</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/tags/PaperShip/</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/tags/Mendeley/</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/tags/Gridengine/</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/tags/Magic-Keyboard/</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/tags/setup/</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sishida21.github.io/tags/LaTeX/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -447,91 +419,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/tags/Gridengine/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/Magic-Keyboard/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/iPad/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/setup/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/PaperShip/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/Mendeley/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/tags/Resonance-structure/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/gamess/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/gaussian/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/quantum-chemistry/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/jupyter-notebook/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/NetworkX/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/tags/Search-Tree/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -545,7 +433,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/tags/Hexo/</loc>
+    <loc>https://sishida21.github.io/tags/battery/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -580,7 +468,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/tags/battery/</loc>
+    <loc>https://sishida21.github.io/tags/Hexo/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -594,21 +482,21 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/tags/TeachOpenCADD/</loc>
+    <loc>https://sishida21.github.io/tags/NetworkX/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/tags/drug-discovery/</loc>
+    <loc>https://sishida21.github.io/tags/Search-Tree/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/tags/machine-learning/</loc>
+    <loc>https://sishida21.github.io/tags/jupyter-notebook/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -645,14 +533,21 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Cheminformatics/ChemAxon/</loc>
+    <loc>https://sishida21.github.io/categories/Apple/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Apple/</loc>
+    <loc>https://sishida21.github.io/categories/Introduction/</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sishida21.github.io/categories/Cheminformatics/ChemAxon/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -673,28 +568,7 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Introduction/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/categories/Apple/Mac/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/categories/Computational-Chemistry/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/categories/Programming/Java/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -708,13 +582,6 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Apple/iPad/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sishida21.github.io/categories/iPad/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -722,49 +589,14 @@
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Bioinformatics/</loc>
+    <loc>https://sishida21.github.io/categories/Apple/iPad/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sishida21.github.io/categories/Books/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/categories/Books/Lifehack/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/categories/Programming/Shell-Script/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/categories/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/categories/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/</loc>
-    <lastmod>2024-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sishida21.github.io/categories/%E5%BC%B7%E5%8C%96%E5%AD%A6%E7%BF%92/</loc>
+    <loc>https://sishida21.github.io/categories/Programming/Java/</loc>
     <lastmod>2024-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
